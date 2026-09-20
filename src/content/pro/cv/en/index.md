@@ -5,12 +5,14 @@ experience:
     company: Europa-Park GmbH & Co Mack KG
     period: "2020 — present"
     description: |
-      Status quo 2020: External agencies, fragmented systems, and little internal tech ownership. My mission: Building a true in-house development department for Germany's largest theme park from scratch. 
-      
-      My first end boss: The "MackOne Account" – a central CIAM/SSO for the entire digital landscape. After that, I focused on structuring the team and the technology. We completely flipped the tech stack: Moving away from manual FTP uploads to a clean hybrid-cloud architecture (GCP & STACKIT). Today, everything runs containerized on Kubernetes, infrastructure is code (Terraform), and deployments are fully automated via ArgoCD. 
-      
+      Status quo 2020: External agencies, fragmented systems, and little internal tech ownership. My mission: Building a true in-house development department for Germany's largest theme park from scratch – starting as Manager Digital Platforms, and since late 2021 as Team Lead. The team of three we were back then has grown to 12 people today.
+
+      My first end boss: The “MackOne Account” – a central CIAM/SSO for the entire digital landscape. After that, I focused on structuring the team and the technology. We completely flipped the tech stack: Moving away from manual FTP uploads to a clean hybrid-cloud architecture (GCP & STACKIT). Today, everything runs containerized on Kubernetes, infrastructure is code (Terraform), and deployments are fully automated via ArgoCD.
+
+      My job is not to build everything myself, but to grow the team to the point where it can. I defined how our domain services are built – the team built them: 9 services in production today, one more in development. The pattern keeps repeating: the MackOne web apps initially came from an agency and have long since moved fully into the team, and my PrivacyLog prototype became a product of its own with its own product ownership. And for the new hybrid AI team, which I run together with the Data team lead, we hired internally after an agency kickstart to keep the know-how in the house for good. What we are building is “Ecki”, an agentic AI platform.
+
       The future strategy is clear: As a platform team, we build the stable core services that external partners and other teams can securely build upon.
-    tags: [Engineering Leadership, Platform Engineering, Cloud Native, Kubernetes, Terraform, CIAM]
+    tags: [Engineering Leadership, Platform Engineering, Cloud Native, Kubernetes, Terraform, CIAM, Agentic AI]
 
   - role: Software Architect
     company: Groz-Beckert KG
