@@ -84,3 +84,17 @@ CSS custom properties in `src/styles/global.css`:
 
 Translations in `src/i18n/de.ts` and `src/i18n/en.ts`.
 Helper: `import { t, getLang } from '../i18n'`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live as GitHub issues in `hemi1986/michaelschemppde`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical roles, used verbatim as label strings. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
