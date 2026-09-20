@@ -1,14 +1,14 @@
 ---
 mindset:
-  - title: "Machen > Zertifikate"
-    description: "Ich sammle kein Papier, ich erledigt den Job. Softwareentwicklung ist für mich kein 9-to-5-Job, sondern eine Berufung seit Kindheitstagen."
-  - title: "Oldschool Arbeitsmoral"
-    description: "Ich vertrete traditionelle Werte bei der Arbeit: Ohne echte Leistung entsteht kein Output. Labern ist billig, show me the code."
+  - title: "Machen"
+    description: "Softwareentwicklung ist für mich kein 9-to-5-Job, sondern meine Berufung seit Kindheitstagen. Wenn du was nicht kannst, musst du es eben lernen und dann einfach tun."
+  - title: "Flucht nach vorne"
+    description: "Ohne Leistung zu bringen, erreicht man keine Ziele und Leistung wächst nunmal nicht durch Bequemlichkeit."
   - title: "Ownership & Iteration"
-    description: "Ich übernehme die volle Verantwortung, fuchse mich extrem schnell in neue Tech rein und stehe zu meinen Fehlern. Wer ab und zu nicht einfach mal was kaputt macht, bewegt sich einfach zu langsam."
+    description: "Ich übernehme gerne Verantwortung, lerne neue Technik schnell und stehe zu meinen Fehlern, um es das nächste mal besser zu machen."
 skills:
   - label: Software Architecture
-    sub: Distributed Systems & Cloud Native
+    sub: Verteilte Systems & Cloud Native
   - label: Engineering Leadership
     sub: Teams aufbauen & entwickeln, Agile Kultur
   - label: Platform Engineering & DevOps
@@ -21,4 +21,4 @@ skills:
     sub: Agentic Development & Platforms
 ---
 
-Ich löse Probleme auf Systemebene, egal ob Architektur, Tooling oder Team-Setup. Seit 2020 bootstrappe und leite ich das inhouse Dev-Team im Europa-Park (Deutschlands größtem Freizeitpark).
+Ich bin Softwareengineer, Architekt & neudeutsch "Engineering Manager". Ich liebe das, was ich tue: Zusammen mit meinem Team Probleme lösen, Software zu bauen und zu betreiben.
