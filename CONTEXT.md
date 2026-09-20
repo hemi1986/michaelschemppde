@@ -36,7 +36,10 @@ A categorical label on a piece of content. Tags are per-section: Pro and Hobby m
 A localized version of a piece of content. German (`de`) is always the canonical language — authored first, always present. English (`en`) is an optional translation. The slug is the content's identity; the language is an attribute. A missing EN translation falls back to DE rather than producing a 404.
 
 ### CV
-A structured personal résumé belonging to the Pro Section. Content-driven (not baked into translations): roles, descriptions, and skills are authored as structured data separate from the i18n layer. Rendered with full design control — the CV page layout is a first-class template, not a generic content renderer.
+The résumé as a rendered page of the Pro Section (`/pro/cv`). Content-driven (not baked into translations): roles, descriptions, and skills are authored as structured data separate from the i18n layer. Rendered with full design control — the CV page layout is a first-class template, not a generic content renderer. Addresses a visitor browsing the site, so it is written as a narrative.
+
+### Lebenslauf-Dokument
+A standalone résumé artifact under `public/files/pro/`, authored as its own self-contained HTML document and meant to be printed or sent as a formal application. Deliberately **not** generated from the [[CV]] content collection: it addresses a recruiter reading an application rather than a site visitor, so it carries different emphasis, more detail, and a print layout. Differences in wording and emphasis between the two are intentional, not drift — but factual claims (dates, job titles, employers) must agree across both.
 
 ### Article
 A blog post in the Pro Section. Opinion or analysis piece addressed to a professional audience. Topics: architecture decisions, engineering leadership, technology opinions.

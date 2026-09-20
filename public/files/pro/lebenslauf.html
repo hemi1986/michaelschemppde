@@ -4,37 +4,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Michael Schempp Lebenslauf" />
+  <meta name="description" content="Michael Schempp – Lebenslauf / CV" />
   <meta name="author" content="Michael Schempp" />
-  <title>Michael Schempp - Cloud Software Engineering</title>
+  <title>Michael Schempp – Lebenslauf</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-bg: #0a0a0f;
-      --color-bg-surface: #12121a;
-      --color-bg-elevated: #1a1a26;
-      --color-text: #e8e8f0;
-      --color-text-muted: #8888a8;
-      --color-border: #2a2a3a;
-      --color-pro: #00d4ff;
-      --color-pro-dim: rgba(0, 212, 255, 0.2);
-      --color-pro-glow: rgba(0, 212, 255, 0.4);
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        --color-bg: #f4f4f8;
-        --color-bg-surface: #ffffff;
-        --color-bg-elevated: #ebebf2;
-        --color-text: #1a1a2e;
-        --color-text-muted: #5a5a7a;
-        --color-border: #d0d0e0;
-        --color-pro: #0099cc;
-        --color-pro-dim: rgba(0, 153, 204, 0.133);
-        --color-pro-glow: rgba(0, 153, 204, 0.267);
-      }
+      --color-bg: #f4f4f8;
+      --color-bg-surface: #ffffff;
+      --color-bg-elevated: #ebebf2;
+      --color-text: #1a1a2e;
+      --color-text-muted: #5a5a7a;
+      --color-border: #d0d0e0;
+      --color-pro: #0099cc;
+      --color-pro-dim: rgba(0, 153, 204, 0.1);
+      --color-pro-border: rgba(0, 153, 204, 0.3);
+      --color-accent-strong: #0077a3;
+      --max-width: 820px;
     }
 
     * {
@@ -43,953 +31,1060 @@
       padding: 0;
     }
 
+    html {
+      font-size: 14px;
+    }
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background-color: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
-      font-size: 14px;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    a {
+    /* Page wrapper – zentriert wie ein Blatt Papier */
+    .page {
+      max-width: var(--max-width);
+      margin: 2rem auto;
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 2.5rem 2.5rem 2rem;
+      border-bottom: 2px solid var(--color-pro);
+    }
+
+    .header-photo img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--color-pro);
+      flex-shrink: 0;
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .header-info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--color-text);
+    }
+
+    .header-info .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--color-pro);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .header-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .header-contact span {
+      white-space: nowrap;
+    }
+
+    .header-contact a {
       color: var(--color-pro);
       text-decoration: none;
     }
 
-    a:hover {
+    .header-contact a:hover {
       text-decoration: underline;
     }
 
-    /* Header */
-    .header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
+    /* ── Profil / Zusammenfassung ── */
+    .profile {
+      padding: 1.5rem 2.5rem;
+      background: var(--color-pro-dim);
       border-bottom: 1px solid var(--color-border);
-      margin-bottom: 2rem;
     }
 
-    .passbild {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+    .profile p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      max-width: 95%;
     }
 
-    .passbild img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--color-pro);
-      box-shadow: 0 0 12px var(--color-pro-glow);
+    /* ── Sections ── */
+    .section {
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      letter-spacing: -0.02em;
+    .section:last-child {
+      border-bottom: none;
     }
 
-    .header h1 .thinFont {
-      font-weight: 300;
-      color: var(--color-text-muted);
-    }
-
-    .header h3 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.875rem;
-      color: var(--color-pro);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 500;
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .content-row {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 2.5rem;
-      padding-bottom: 4rem;
-    }
-
-    @media (max-width: 768px) {
-      .content-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Sidebar */
-    .skills {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .skill-box {
-      background-color: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 1.25rem;
-    }
-
-    .skill-header h3 {
+    .section-title {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-text-muted);
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--color-border);
+      letter-spacing: 0.14em;
+      color: var(--color-pro);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--color-pro-border);
     }
 
-    .skill-content {
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-      line-height: 1.7;
-    }
-
-    .skill-content p {
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-content p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Timeline / Main */
-    .lifeline {
+    /* ── Timeline Einträge ── */
+    .timeline {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 1.75rem;
     }
 
-    .lifeline-topic {
-      position: relative;
-    }
-
-    .lifeline-header h2 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .lifeline-header h2 .heading-addition {
-      text-transform: none;
-      font-weight: 400;
-      color: var(--color-text-muted);
-      opacity: 0.7;
-    }
-
-    .lifeline-section {
+    .entry {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: 130px 1fr;
+      gap: 1.25rem;
       position: relative;
     }
 
-    @media (max-width: 640px) {
-      .lifeline-section {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-    }
-
-    .lifeline-section::before {
+    .entry::before {
       content: '';
       position: absolute;
-      left: 120px;
+      left: 130px;
+      top: 8px;
+      bottom: -1.75rem;
+      width: 2px;
+      background: var(--color-border);
+    }
+
+    .timeline > .entry:last-child::before {
+      display: none;
+    }
+
+    .entry-dot {
+      position: absolute;
+      left: 125px;
       top: 6px;
-      bottom: 0;
-      width: 1px;
-      background-color: var(--color-border);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-bg-surface);
+      border: 2.5px solid var(--color-pro);
+      z-index: 1;
     }
 
-    @media (max-width: 640px) {
-      .lifeline-section::before {
-        display: none;
-      }
-    }
-
-    .lifeline-date {
+    .entry-date {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
       color: var(--color-text-muted);
       text-align: right;
       padding-right: 1.5rem;
       line-height: 1.5;
-      position: relative;
+      padding-top: 0.1rem;
     }
 
-    @media (max-width: 640px) {
-      .lifeline-date {
-        text-align: left;
-        padding-right: 0;
-        color: var(--color-pro);
-      }
+    .entry-body h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.3;
     }
 
-    .lifeline-date::after {
-      content: '';
-      position: absolute;
-      right: -5.5px;
-      top: 5px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background-color: var(--color-bg);
-      border: 2px solid var(--color-pro);
-      box-shadow: 0 0 6px var(--color-pro-glow);
-    }
-
-    @media (max-width: 640px) {
-      .lifeline-date::after {
-        display: none;
-      }
-    }
-
-    .lifeline-content {
-      padding-left: 0.5rem;
-    }
-
-    .position {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .position p {
-      font-size: 0.9375rem;
-    }
-
-    .position p:last-child {
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
+    .entry-body .company {
+      font-size: 0.85rem;
+      color: var(--color-pro);
       font-weight: 500;
+      margin-bottom: 0.5rem;
     }
 
-    .description {
-      font-size: 0.875rem;
+    .entry-body .entry-lead {
+      font-size: 0.85rem;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    .entry-body .group-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-pro);
+      font-weight: 600;
+      margin-top: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .entry-body .group-label + ul {
+      margin-top: 0.2rem;
+    }
+
+    .entry-body .grade {
+      font-size: 0.8rem;
       color: var(--color-text-muted);
-      line-height: 1.7;
+      font-weight: 400;
     }
 
-    .important-keyword {
+    .entry-body ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .entry-body ul li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.35rem;
+    }
+
+    .entry-body ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--color-pro);
+      font-weight: 600;
+    }
+
+    .entry-body ul li strong {
       color: var(--color-text);
       font-weight: 600;
     }
 
-    /* Print styles */
+    .entry-body .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+
+    .entry-body .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      background: var(--color-pro-dim);
+      color: var(--color-accent-strong);
+      border: 1px solid var(--color-pro-border);
+    }
+
+    /* ── Skills Grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: var(--color-bg-elevated);
+    }
+
+    .skill-card h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-pro);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .skill-level {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+      font-weight: 500;
+    }
+
+    .skill-level.expert {
+      background: var(--color-pro);
+      color: #fff;
+    }
+
+    .skill-level.advanced {
+      background: var(--color-pro-dim);
+      color: var(--color-accent-strong);
+      border: 1px solid var(--color-pro-border);
+    }
+
+    .skill-level.familiar {
+      background: var(--color-bg);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+    }
+
+    .skills-legend {
+      font-size: 0.68rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      margin: -0.6rem 0 1rem;
+    }
+
+    .skill-card p + p {
+      margin-top: 0.4rem;
+    }
+
+    .skill-card p .skill-level {
+      margin-left: 0;
+      margin-right: 0.4rem;
+    }
+
+    /* ── Zertifikate / Konferenzen (kompakte Liste) ── */
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .compact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.85rem;
+    }
+
+    .compact-item:last-child {
+      border-bottom: none;
+    }
+
+    .compact-item .name {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .compact-item .issuer {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .compact-item .year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      margin-left: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-speaker {
+      background: var(--color-pro);
+      color: #fff;
+    }
+
+    .badge-attendee {
+      background: var(--color-bg-elevated);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ── Sprachen ── */
+    .languages {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.85rem;
+    }
+
+    .languages span {
+      color: var(--color-text-muted);
+    }
+
+    .languages strong {
+      color: var(--color-text);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 1rem 2.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer a {
+      color: var(--color-pro);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .page {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem 1.5rem;
+      }
+
+      .header-contact {
+        justify-content: center;
+      }
+
+      .profile {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .section {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+
+      .entry::before {
+        display: none;
+      }
+
+      .entry-dot {
+        display: none;
+      }
+
+      .entry-date {
+        text-align: left;
+        padding-right: 0;
+        color: var(--color-pro);
+        font-weight: 500;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-item {
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .compact-item .year {
+        margin-left: 0;
+      }
+
+      .languages {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* ── Print ── */
     @media print {
-      :root {
-        --color-bg: #fff;
-        --color-bg-surface: #f4f4f8;
-        --color-bg-elevated: #ebebf2;
-        --color-text: #1a1a2e;
-        --color-text-muted: #5a5a7a;
-        --color-border: #d0d0e0;
-        --color-pro: #0099cc;
-        --color-pro-dim: rgba(0, 153, 204, 0.133);
-        --color-pro-glow: rgba(0, 153, 204, 0.267);
+      html {
+        font-size: 11pt;
       }
 
       body {
         background: #fff;
-        color: #1a1a2e;
-        font-size: 12px;
       }
 
-      .passbild img {
+      .page {
+        max-width: none;
+        margin: 0;
+        border: none;
         box-shadow: none;
-        border-color: #0099cc;
+        border-radius: 0;
+      }
+
+      .header {
+        padding: 1.5cm 2cm 1cm;
+      }
+
+      .section {
+        padding: 0.8cm 2cm;
+      }
+
+      .profile {
+        padding: 0.6cm 2cm;
+      }
+
+      .footer {
+        padding: 0.5cm 2cm;
       }
 
       a {
-        color: #0099cc;
+        color: var(--color-text);
         text-decoration: none;
+      }
+
+      .entry-body .tag,
+      .badge,
+      .skill-level {
+        border: 1px solid #999;
+      }
+
+      .skill-level.expert,
+      .badge-speaker {
+        background: #ccc !important;
+        color: #333 !important;
+      }
+
+      /* ── Seitenumbrüche ── */
+      @page {
+        size: A4;
+      }
+
+      /* Kurze, geschlossene Blöcke nie zerreißen */
+      .skill-card,
+      .compact-item,
+      .languages > div,
+      .profile {
+        break-inside: avoid;
+      }
+
+      /* Lange Werdegangs-Einträge dürfen umbrechen … */
+      .entry {
+        break-inside: auto;
+      }
+
+      /* … aber nie direkt nach Titel, Firma, Thesis-Satz oder Gruppen-Label */
+      .entry-body h3,
+      .entry-body .company,
+      .entry-body .entry-lead,
+      .entry-body .group-label,
+      .skill-card h4,
+      .section-title,
+      .skills-legend {
+        break-after: avoid;
+      }
+
+      /* Einzelner Aufzählungspunkt bleibt zusammen */
+      .entry-body ul li,
+      .compact-list li {
+        break-inside: avoid;
+      }
+
+      /* Keine Einzelzeilen am Seitenanfang oder -ende */
+      p, li {
+        orphans: 3;
+        widows: 3;
+      }
+
+      /* Tag-Reihe nicht vom Eintrag abschneiden */
+      .entry-body .tags {
+        break-inside: avoid;
+        break-before: avoid;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="header">
-    <div class="passbild">
-      <img src="./michi.png" alt="Michael Schempp - Softwareentwickler" />
-    </div>
-    <h1><span class="thinFont">Michael</span> Schempp</h1>
-    <h3>Software-Architekt, Engineering Lead und bekennender Nerd.</h3>
-  </div>
+  <div class="page">
 
-  <div class="container">
-    <div class="content-row">
-      <div class="skills">
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Kontakt</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Breitenfeldstr. 2 <br />
-              79341 Kenzingen <br />
-              Deutschland
-            </p>
-            <p>+49 (0) 152 22763067</p>
-            <p>
-              www.michaelschempp.de <br />
-              contact@michaelschempp.de <br />
-              github.com/hemi1986 <br />
-              xing.com/profile/Michael_Schempp4 <br />
-              linkedin.com/in/michael-schempp-3bb428135/ <br />
-              medium.com/@hemi_1337
-            </p>
-          </div>
-        </div>
-
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Sprachen</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Deutsch<br />
-              Englisch
-            </p>
-          </div>
-        </div>
-
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Dev</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Typescript, Javascript, <br />
-              PHP, Java, C#, Python, <br />
-              HTML, CSS, SASS, <br />
-              Angular, Svelte(kit), Vue.js<br />
-              Nest.js, Express.js, Laravel <br />
-              MongoDB, CouchDB, MySQL, <br />
-              Git, Visual Studio Code, <br />
-              Jira, Confluence, <br />
-            </p>
-          </div>
-        </div>
-
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Sec</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Trivy, Istio<br />
-              OAUTH2, OpenID Connect<br />
-              Zero Trust, Locust
-            </p>
-          </div>
-        </div>
-
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Ops</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Docker, -Compose, Kubernetes, <br />
-              GCP, STACKIT, Portainer,<br />
-              Terraform, Ansible, <br />
-              Bitbucket, github, gitlab,<br />
-              ArgoCD, Bamboo,<br />
-              Influx, Grafana, Prometheus,<br />
-              Datadog
-            </p>
-          </div>
-        </div>
-
-        <div class="skill-box">
-          <div class="skill-header">
-            <h3>Leidenschaften</h3>
-          </div>
-          <div class="skill-content">
-            <p>
-              Software-Entwicklung & Architektur, <br />
-              Verteilte Systeme, Cloud, DevSecOps, <br />
-              Resilient Software, Microservices,<br />
-              Generative KI, IOT<br />
-              Agile Produktentwicklung, <br />
-              Hausautomation, FPV-Drohnen, <br />
-              Flipperautomaten
-            </p>
-          </div>
-        </div>
+    <!-- ═══ HEADER ═══ -->
+    <div class="header">
+      <div class="header-photo">
+        <img src="./michi.png" alt="Michael Schempp" />
       </div>
-
-      <div class="lifeline">
-        <div class="lifeline-topic">
-          <div class="lifeline-header">
-            <h2>Anstellung</h2>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Dez. 2021<br />
-              - Heute
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Teamleiter "Digital Development"</b>
-                </p>
-                <p>Europa-Park GmbH & Co Mack KG</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword"> Erfolgreicher Aufbau </span>
-                eines wachsenden Entwicklerteams durch Rekrutierung und
-                Integration von bestehenden sowie neuen Mitarbeitern.
-                Einführung und Etablierung agiler Methoden (SCRUM), inklusive
-                Schulung des Teams und der gesamten Direktion in agilen
-                Arbeitsweisen.<br /><br />
-
-                Als
-                <span class="important-keyword">Technical Lead</span>
-                Verantwortung für die Definition und Implementierung eines
-                <span class="important-keyword">modernen Technologiestacks</span>
-                (Angular, Nest.js) zur Entwicklung von Softwarekomponenten.
-                Einführung von Docker zur Optimierung der Entwicklungs- und
-                Bereitstellungsprozesse. Vermittlung weiterer moderner
-                Entwicklungsmethoden, einschließlich Clean Code, Linting,
-                GitOps sowie Prinzipien des Extreme Programming, um die
-                Codequalität, Teamproduktivität und Effizienz zu steigern.<br /><br />
-
-                Schrittweise Heranführung des Teams an
-                <span class="important-keyword">Cloud-Technologien</span> durch
-                die Umsetzung kleinerer Produkte in der Google Cloud, z. B.
-                der "PrivacyLog", einer Lösung zur DSGVO-konformen
-                Datenlöschung und -automatisierung über serverlose Funktionen
-                (Cloud Run, Cloud Functions).<br /><br />
-
-                <span class="important-keyword">Konzeption und Entwicklung</span>
-                eines Stammdatenservices für gastronomische Daten, der
-                Informationen aus einem bestehenden Warenwirtschaftssystem mit
-                Marketing-Daten anreichert und Menüs über standardisierte
-                REST-APIs an verschiedene Kanäle (Self-Order-Terminals, Mobile
-                Ordering, digitale Anzeigeschilder) ausspielen kann. Dieser
-                Service war der erste operative Domänenservice des neuen
-                Projekts "Digital Services" für den Europa-Park. Die im Zuge
-                dessen bereitgestellte hybride Cloud-Infrastruktur bildete die
-                Basis für zukünftige Erweiterungen und weiterer Services, wie
-                Wartezeiten, virtuelle Queues, Öffnungszeiten und Points of
-                Interest (POIs). <br /><br />
-
-                Hauptverantwortung für den Aufbau einer neuen
-                <span class="important-keyword">hybriden Cloud-Umgebung (Google Cloud und STACKIT)</span>, deren
-                Konfiguration vollständig mit Terraform umgesetzt
-                wurde. Dies umfasste neben die Erstellung der gesamten
-                GCP-Organisationsstruktur, um zukünftige interne und externe
-                Cloud-Projekte effizient zu ermöglichen, auch die
-                Bereitstellung der
-                <span class="important-keyword">Kubernetes Cluster und Datenbanken</span>
-                bei STACKIT.<br />
-
-                Arbeitslasten der neuen Services werden auf Kubernetes
-                (STACKIT) ausgeführt, unterstützt durch gemanagte MongoDB- und
-                Redis-Datenbanken. Die Bereitstellungsprozesse erfolgten über
-                CI/CD-Pipelines (Bitbucket Pipelines und ArgoCD). <br /><br />
-
-                Weiterhin 2 Jahre
-                <span class="important-keyword">Product Ownership</span> für
-                das unternehmensweite Customer Identity and Access Management
-                System mit anschließender Überführung an neue Product Ownerin
-                durch Neuanstellung im Team.<br />
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Juli 2020<br />
-              - Dez. 2021
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Manager Digitale Plattformen</b>
-                </p>
-                <p>Europa-Park GmbH & Co Mack KG</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  (Technischer) Projektleiter </span>bei der Einführung eines zentralen Customer Identity and
-                Access-Management (CIAM) für die digitalen Plattformen (Shops,
-                Apps, Marketing-Automation) sowie die spätere Übernahme des
-                CIAM-Systems als
-                <span class="important-keyword">Product Owner</span>.<br />
-                <span class="important-keyword"> Beratung </span>
-                der verschiedenen Teams & Dienstleister bei den Themen
-                Software-Architektur, Software-Entwicklung, DevOps,
-                Plattformunabhängigkeit & standardisierte API's. <br />
-                <span class="important-keyword"> Entwicklung </span>
-                kleinerer Webapplikationen und Scripte zur Datenaggregation
-                und Anbindung von Drittsoftware an das neue CIAM-System.<br />
-                <span class="important-keyword"> Schulung </span>
-                von Kollegen der Direktionen Digital & Research sowie IT in
-                Container-Technologie (Docker, Kubernetes) und verschiedenen
-                Konzepten entlang des Software-Lebenszyklus wie
-                <span class="important-keyword">
-                  Infrastructure as Code, CI/CD, Clean Code</span>
-                oder <span class="important-keyword">DevSecOps</span>.
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Apr. 2017<br />
-              - Juni 2020
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Softwareentwickler & -architekt</b>
-                </p>
-                <p>Groz-Beckert KG</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  Administration & Weiterentwicklung
-                </span>
-                des digitalen Produkts "Ideal Needle Handling" zur Erfassung
-                von Nadelbrüchen in der Nähindustrie auf Basis von Javascript
-                / Meteor.js & MongoDB und der Administration in der Cloud (IBM
-                Cloud, Docker/Kubernetes) <br />
-                <span class="important-keyword">
-                  Konzeption & Entwicklung von Webkomponenten
-                </span>
-                für die digitalen Vertriebsapps auf Basis von Javascript,
-                Typescript und Angular sowie deren Bereitstellung für die
-                Vertriebsmitarbeiter <br />
-                <span class="important-keyword">
-                  Konzeption & Implementierung einer Softwarearchitektur
-                </span>
-                auf Microservice Basis für alte & neue interne
-                Firmenapplikationen (Bspw. Administrationsapplikationen für
-                die digitalen Vertriebsapps) inklusive Möglichkeit zur
-                Anbindung bestehender Legacy Applikationen, sowie der
-                prototypischen Entwicklung einer Web-Applikation auf Basis der
-                neuen Architektur (Proof of Concept). Architekturmerkmale:
-                Hosting: Kubernetes inkl. Service-Mesh Istio. Microservices:
-                Javascript- (Entwicklung in Typescript) Services auf Basis von
-                Nest.js (Framework), NATS Messaging Service zur Kommunikation,
-                MinIO als Object Storage, Keycloak als Identity Provider und
-                zentralem REST API-Gateway. Entwicklung im Monorepository
-                sowie automatisiertem Deployment via Bamboo.
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Aug. 2016<br />
-              - März 2017
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Softwareentwickler & -architekt</b>
-                </p>
-                <p>Retail United GmbH & Co. KG</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  Konzeption & Entwicklung einer Online Kassen-Lösung
-                </span>
-                für den Einzelhandel mit Schnittstelle zum neu eingeführten
-                Cloud-ERP-System „weclapp" auf Basis von
-                PHP/Node.js/MySQL/Javascript <br />
-                <span class="important-keyword">
-                  Konzeption & Entwicklung eines „IOT-Devices"
-                </span>
-                zur Ansteuerung von Bondruckern und Kassenschubladen aus der
-                Cloud auf Basis von Linux & Node.js <br />
-                <span class="important-keyword">
-                  Entwicklung weiterer Schnittstellen
-                </span>
-                zu Drittanbietern wie dem Bezahlservice-Anbieter „sumUp"
-                <br />
-                <span class="important-keyword">
-                  Bereitstellung aller nötigen Services
-                </span>
-                zur Entwicklung, dem Betrieb, der Wartung sowie dem Deployment
-                der Softwarekomponenten <br />
-                <span class="important-keyword">
-                  Linux Serveradministration
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Juli 2015<br />
-              - Juli 2016
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Softwareentwickler</b>
-                </p>
-                <p>KabelWelt GmbH & Co. KG</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  Konzeption & Entwicklung diverser kleinerer Web-Apps
-                </span>
-                zum Monitoring der Verkaufszahlen aus den ca. 50
-                Einzelhandels-Standorten der Firma auf Basis von PHP/MySQL &
-                Javascript <br />
-                <span class="important-keyword">
-                  Konzeption & Entwicklung eines Frameworks
-                </span>
-                für zukünftige Webprojekte auf Basis von PHP & Node.js <br />
-                <span class="important-keyword">
-                  Bereitstellung und Administration eines neuen Web-Servers
-                </span>
-                (Linux, Plesk Web-Host) für diverse Online-Projekte der Firma
-                <br />
-                Durchführung des geplanten internen
-                <span class="important-keyword"> Infrastruktur-Wechsels </span>
-                von Microsoft Exchange zu Apple OSX Server <br />
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              Juni 2013<br />
-              - Juni 2015
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Softwareentwickler</b>
-                </p>
-                <p>RSU Reifen-Center GmbH</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  Administration und Weiterentwicklung
-                </span>
-                des firmeneigenen Warenwirtschaftssystems <br />
-                <span class="important-keyword">
-                  Weiterentwicklung der Online-Plattformen
-                </span>
-                „www.reifensuche.com" sowie „www.tyresystem.de" <br />
-                teamorientierte
-                <span class="important-keyword">
-                  Konzeption und Realisierung
-                </span>
-                neuer Softwarekomponenten mit PHP/MySQL & Javascript <br />
-                <span class="important-keyword">
-                  Entwicklung und Optimierung
-                </span>
-                von Schnittstellen zu Drittanbietern <br />
-                <span class="important-keyword">
-                  Administration der Unternehmensserver
-                </span>
-                (Linux) sowie Administration der Versionsverwaltung des
-                Entwicklungsteams (Git) <br />
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">
-              März 2009<br />
-              - Apr. 2013
-            </div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Praktikant / Werksstudent</b>
-                </p>
-                <p>MediaLas Electronics GmbH</p>
-              </div>
-              <div class="description">
-                <span class="important-keyword">
-                  Entwicklung eines Prototyps
-                </span>
-                zur körperbasierten Steuerung eines Laserprojektors zu
-                Showzwecken durch Microsoft Kinect (Master Thesis)<br />
-                <span class="important-keyword">
-                  Entwicklung eines Verwaltungssystems
-                </span>
-                für Bauteile, Seriennummern, Reparaturen, Produkte etc. auf
-                Basis von PHP und MySQL (Bachelor Thesis)<br />
-                <span class="important-keyword">
-                  Konzeption und Realisierung
-                </span>
-                der Unternehmenswebseiten auf Basis von Typo3<br />
-                Eigenverantwortliche
-                <span class="important-keyword">
-                  Planung und Realisierung
-                </span>
-                von Lasershows in Zusammenarbeit mit Kunden<br />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lifeline-topic">
-          <div class="lifeline-header">
-            <h2>Ausbildung</h2>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2010<br />-2013</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p><b>Master of Science (M.Sc.)</b> Note: 1.5</p>
-                <p>Hochschule Reutlingen</p>
-              </div>
-              <div class="description">
-                Studiengang: Medien- und Kommunikationsinformatik <br />
-                <span class="important-keyword">
-                  Thesis: Interaktive Steuerung von Showlaserprojektoren mit
-                  dem Trackingsystem Kinect <br />
-                </span>
-                Schwerpunkte: Kollaborative Systeme, Visualisierung,
-                Mensch-Maschine Interaktion
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">2007<br />-2010</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p><b>Bachelor of Science (B.Sc.)</b> Note: 2.2</p>
-                <p>Hochschule Reutlingen</p>
-              </div>
-              <div class="description">
-                Studiengang: Wirtschaftsinformatik <br />
-                <span class="important-keyword">
-                  Thesis: Nebenläufigkeit von Transaktionen innerhalb einer
-                  Webanwendung <br />
-                </span>
-                Schwerpunkte: Grundlagen der Informatik / Softwareentwicklung,
-                Betriebswirtschaftliche Grundlagen, Erarbeitung
-                Betriebswirtschaftlicher Zusammenhänge und deren Umsetzung in
-                IT-Systeme
-              </div>
-            </div>
-          </div>
-
-          <div class="lifeline-section">
-            <div class="lifeline-date">2006</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Allgemeine Hochschulreife</b>
-                  Note: 2.6
-                </p>
-                <p>Philipp-Matthäus-Hahn-Schule Balingen</p>
-              </div>
-              <div class="description">
-                Technisches Gymnasium <br />
-                Fachrichtung: Gestaltungs- und Medientechnik
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lifeline-topic">
-          <div class="lifeline-header">
-            <h2>Zertifikate / Trainings</h2>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2023</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Professional Scrum Master 1 (PSM 1)</b>
-                </p>
-                <p>Scrum.org</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2023</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Professional Scrum Product Owner 1 (PSPO 1)</b>
-                </p>
-                <p>Scrum.org</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2022</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Führungskräfte-Training</b>
-                </p>
-                <p>Mario Cristiano (Next Level Leadership)</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2019 - 2020</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Englisch Sprachtraining</b>
-                </p>
-                <p>Impuls Sprachentraining GbR</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2018</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>FirstSpirit Developer Training Basic</b>
-                </p>
-                <p>e-Spirit AG</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2018</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Angular Developer Training</b>
-                </p>
-                <p>Orientation in Objects GmbH</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2017</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Docker Fundamentals + Enterprise Operations Course</b>
-                </p>
-                <p>AKRA GmbH</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lifeline-topic">
-          <div class="lifeline-header">
-            <h2>
-              Konferenzen
-              <span class="heading-addition">(Teilnehmer)</span>
-            </h2>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2023/2024</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Cidaas Connect (Identity & Access Management) (2x
-                    Speaker)</b>
-                </p>
-                <p>Rust</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2022-2024</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Cloud Fest</b>
-                </p>
-                <p>Rust</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2022</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>DevOps Con Hybrid Edition</b>
-                </p>
-                <p>München</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2019</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Machine Learning-, IOT Conference</b>
-                </p>
-                <p>München</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2018</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Javascript-, Angular-, React-, HTML Days</b>
-                </p>
-                <p>München</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
-          <div class="lifeline-section">
-            <div class="lifeline-date">2017</div>
-            <div class="lifeline-content">
-              <div class="position">
-                <p>
-                  <b>Api-, Microservices Summit</b>
-                </p>
-                <p>Berlin</p>
-              </div>
-              <div class="description"></div>
-            </div>
-          </div>
+      <div class="header-info">
+        <h1>Michael Schempp</h1>
+        <div class="subtitle">Software-Architekt, Engineering Lead und bekennender Nerd.</div>
+        <div class="header-contact">
+          <span>Breitenfeldstr. 2, 79341 Kenzingen</span>
+          <span><a href="tel:+4915222763067">+49 (0) 152 22763067</a></span>
+          <span><a href="https://michaelschempp.de" target="_blank">michaelschempp.de</a></span>
+          <span><a href="mailto:contact@michaelschempp.de">contact@michaelschempp.de</a></span>
+          <span><a href="https://github.com/hemi1986" target="_blank">github.com/hemi1986</a></span>
+          <span><a href="https://linkedin.com/in/michael-schempp-3bb428135/" target="_blank">LinkedIn</a></span>
+          <span><a href="https://medium.com/@hemi_1337" target="_blank">Medium</a></span>
         </div>
       </div>
     </div>
+
+    <!-- ═══ PROFIL ═══ -->
+    <div class="profile">
+      <p>
+        <strong>Engineering Lead und Software-Architekt</strong> mit <strong>15+ Jahren Erfahrung</strong>.
+        Ich baue Entwicklungsteams und die technische Basis, auf der sie eigenständig Produkte liefern:
+        eine Inhouse-Entwicklung vom Dreierteam auf 12 Mitarbeiter aufgebaut, die Architektur für eine
+        wachsende Domänenservice-Landschaft definiert (heute 9 Services produktiv) und
+        Produktverantwortung konsequent ins Team übergeben.
+        Technisch zu Hause in verteilten Systemen, hybriden Cloud-Architekturen (GCP / STACKIT) und
+        Kubernetes. Von der Idee bis zum produktiven Betrieb.
+      </p>
+    </div>
+
+    <!-- ═══ BERUFLICHER WERDEGANG ═══ -->
+    <div class="section">
+      <h2 class="section-title">Beruflicher Werdegang</h2>
+      <div class="timeline">
+
+        <!-- Europa-Park – Heute -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Dez. 2021<br />– Heute</div>
+          <div class="entry-body">
+            <h3>Teamleiter „Digital Development“</h3>
+            <div class="company">Europa-Park GmbH &amp; Co Mack KG</div>
+            <p class="entry-lead">Auftrag: eine Inhouse-Entwicklung von Grund auf aufbauen. Ich habe die
+              technische Basis selbst gelegt und das Team anschließend dahin entwickelt, dass es darauf
+              eigenständig Produkte baut. Inklusive Übergabe der Produktverantwortung.</p>
+
+            <div class="group-label">Führung &amp; Enablement</div>
+            <ul>
+              <li><strong>Teamaufbau &amp; Arbeitsweise:</strong> Aufbau der Inhouse-Entwicklung vom
+                Dreierteam (inkl. mir) auf heute 12 Mitarbeiter; Einführung und Etablierung von SCRUM,
+                inkl. Schulung des Teams und der Direktion in agilen Arbeitsweisen.</li>
+              <li><strong>Technisches Fundament gelegt:</strong> Technologiestack (Angular, Nest.js), hybride
+                Cloud-Umgebung (GCP + STACKIT) mit Terraform, Kubernetes-Cluster und gemanagte Datenbanken
+                (MongoDB, Redis) sowie GitOps und CI/CD (Bitbucket Pipelines, ArgoCD). Die Basis, auf der
+                das Team heute eigenständig liefert.</li>
+              <li><strong>Architektur unserer Domänenservices:</strong> Definition, wie Domänenservices aufgebaut werden. Der Blueprint, gegen den das Team seitdem
+                neue Services baut.</li>
+              <li><strong>Produktverantwortung übergeben:</strong> 2 Jahre Product Owner für den MackOne
+                Account, anschließend Übergabe an eine Product Ownerin im eigenen Team.</li>
+              <li><strong>Hybrides AI-Team:</strong> Gemeinsame Leitung mit dem Teamleiter Customer & Market Intelligence. Ich
+                verantworte die technische Seite. Nach dem Kickstart durch eine externe Agentur drei Stellen
+                intern besetzt (davon zwei Entwickler/DevOps in meiner Verantwortung), um das Know-how
+                dauerhaft ins Unternehmen zu holen. Entwickelt wird „Ecki“, eine agentische
+                KI-Plattform. Das erste Produkt ist ein chatbasierter Assistent, der Unternehmenswissen anbindet und
+                Schatten-AI Lösungen (ChatGPT etc.) ablöst.</li>
+            </ul>
+
+            <div class="group-label">Was das Team daraus gebaut hat</div>
+            <ul>
+              <li><strong>Digital Services:</strong> 9 Domänenservices produktiv, ein weiterer in
+                Entwicklung. Den Anfang machte der Gastro-Stammdatenservice beim Wechsel auf Kubernetes, mit REST-APIs für Self-Order-Terminals, Mobile Ordering und digitale Anzeigeschilder.</li>
+              <li><strong>MackOne Account inhouse geholt:</strong> Hosted Pages und zentrales Nutzerprofil kamen
+                anfangs vom Dienstleister und liegen heute vollständig beim Team; Identity-Backend
+                weiterhin cidaas.</li>
+              <li><strong>PrivacyLog:</strong> aus meinem Prototyp für plattformübergreifende DSGVO-konforme Datenlöschung wurde
+                ein eigenständiges Microservice-Produkt auf Kubernetes mit eigener Produktverantwortung.
+                Heute ebenfalls Teil der Digital Services.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Angular</span>
+              <span class="tag">Nest.js</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">GCP</span>
+              <span class="tag">STACKIT</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">ArgoCD</span>
+              <span class="tag">SCRUM</span>
+              <span class="tag">Agentic AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Europa-Park – Manager -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Juli 2020<br />– Dez. 2021</div>
+          <div class="entry-body">
+            <h3>Manager Digitale Plattformen</h3>
+            <div class="company">Europa-Park GmbH &amp; Co Mack KG</div>
+            <ul>
+              <li><strong>SSO-Projekt → „MackOne Account“:</strong> Technischer Projektleiter für die
+                Einführung eines zentralen Customer Identity &amp; Access Management für alle digitalen
+                Plattformen (Shops, Apps, Marketing-Automation); Auswahl und Anbindung von cidaas als
+                Identity-Backend, Aufbau als Produkt „MackOne Account“, spätere Übernahme als
+                Product Owner</li>
+              <li><strong>Beratung:</strong> Beratung verschiedener Teams &amp; Dienstleister in den Bereichen
+                Software-Architektur, DevOps, Plattformunabhängigkeit und standardisierte APIs</li>
+              <li><strong>Entwicklung:</strong> Implementierung von Webapplikationen und Scripts zur
+                  Datenaggregation und Anbindung von Drittsoftware an das CIAM-System</li>
+              <li><strong>Schulung:</strong> Weiterbildung von Kollegen in Docker, Kubernetes, Infrastructure as
+                Code, CI/CD, Clean Code und DevSecOps</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">CIAM</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">DevSecOps</span>
+              <span class="tag">IaC</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Groz-Beckert -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Apr. 2017<br />– Juni 2020</div>
+          <div class="entry-body">
+            <h3>Softwareentwickler &amp; -architekt</h3>
+            <div class="company">Groz-Beckert KG</div>
+            <ul>
+              <li><strong>Produktadministration:</strong> Administration &amp; Weiterentwicklung von „Ideal Needle
+                Handling" (Meteor.js, MongoDB, IBM Cloud, Docker/Kubernetes)</li>
+              <li><strong>Webkomponenten:</strong> Konzeption &amp; Entwicklung von Angular-Komponenten für
+                digitale Vertriebsapps (Javascript/Typescript)</li>
+              <li><strong>Microservice-Architektur:</strong> Design und Implementierung einer neuen
+                  Softwarearchitektur auf Microservice-Basis – Kubernetes mit Istio Service Mesh,
+                Nest.js-Services (Typescript), NATS Messaging, MinIO Object Storage, Keycloak als
+                Identity Provider, zentrales REST API-Gateway</li>
+              <li><strong>DevOps:</strong> Monorepository-Entwicklung mit automatisiertem Deployment via Bamboo</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Angular</span>
+              <span class="tag">Nest.js</span>
+              <span class="tag">Typescript</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Istio</span>
+              <span class="tag">NATS</span>
+              <span class="tag">Keycloak</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Bamboo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Retail United -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Aug. 2016<br />– März 2017</div>
+          <div class="entry-body">
+            <h3>Softwareentwickler &amp; -architekt</h3>
+            <div class="company">Retail United GmbH &amp; Co. KG</div>
+            <ul>
+              <li><strong>Online-Kassenlösung:</strong> Konzeption &amp; Entwicklung für den Einzelhandel mit
+                Schnittstelle zum Cloud-ERP „weclapp“ (PHP, Node.js, MySQL, Javascript)</li>
+              <li><strong>IOT-Device:</strong> Entwicklung eines Geräts zur Ansteuerung von Bondruckern und
+                Kassenschubladen aus der Cloud (Linux, Node.js)</li>
+              <li><strong>Drittintegrationen:</strong> Anbindung von Bezahldienstleistern (z. B. sumUp)</li>
+              <li><strong>Infrastruktur:</strong> Bereitstellung aller Services für Entwicklung, Betrieb und
+                Deployment; Linux-Serveradministration</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Linux</span>
+              <span class="tag">IOT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KabelWelt -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Juli 2015<br />– Juli 2016</div>
+          <div class="entry-body">
+            <h3>Softwareentwickler</h3>
+            <div class="company">KabelWelt GmbH &amp; Co. KG</div>
+            <ul>
+              <li><strong>Web-Apps:</strong> Monitoring-Apps für Verkaufszahlen aus ca. 50 Einzelhandels-Standorten
+                (PHP, MySQL, Javascript)</li>
+              <li><strong>Framework:</strong> Entwicklung eines Basis-Frameworks für zukünftige Webprojekte
+                (PHP, Node.js)</li>
+              <li><strong>Infrastruktur:</strong> Bereitstellung &amp; Administration eines neuen Web-Servers
+                (Linux, Plesk); Durchführung des Wechsels von MS Exchange zu Apple OSX Server</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RSU -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">Juni 2013<br />– Juni 2015</div>
+          <div class="entry-body">
+            <h3>Softwareentwickler</h3>
+            <div class="company">RSU Reifen-Center GmbH</div>
+            <ul>
+              <li><strong>Warenwirtschaft:</strong> Administration &amp; Weiterentwicklung des firmeneigenen Systems</li>
+              <li><strong>Online-Plattformen:</strong> Weiterentwicklung von reifensuche.com und tyresystem.de</li>
+              <li><strong>Neuentwicklungen:</strong> Teamorientierte Konzeption und Umsetzung neuer
+                Softwarekomponenten (PHP, MySQL, Javascript)</li>
+              <li><strong>Infrastruktur:</strong> Linux-Serveradministration; Git-Versionsverwaltung</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Javascript</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MediaLas -->
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">März 2009<br />– Apr. 2013</div>
+          <div class="entry-body">
+            <h3>Praktikant / Werksstudent</h3>
+            <div class="company">MediaLas Electronics GmbH</div>
+            <ul>
+              <li><strong>Master-Thesis:</strong> Prototyp zur körperbasierten Steuerung von Laserprojektoren
+                mittels Microsoft Kinect</li>
+              <li><strong>Bachelor-Thesis:</strong> Verwaltungssystem für Bauteile, Seriennummern, Reparaturen
+                (PHP, MySQL)</li>
+              <li><strong>Web:</strong> Konzeption und Realisierung der Unternehmenswebseiten (Typo3)</li>
+              <li><strong>Shows:</strong> Eigenverantwortliche Planung und Realisierung von Lasershows</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Typo3</span>
+              <span class="tag">Kinect</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ AUSBILDUNG ═══ -->
+    <div class="section">
+      <h2 class="section-title">Ausbildung</h2>
+      <div class="timeline">
+
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">2010 – 2013</div>
+          <div class="entry-body">
+            <h3>Master of Science (M.Sc.) – Medien- und Kommunikationsinformatik <span class="grade">Note: 1.5</span></h3>
+            <div class="company">Hochschule Reutlingen</div>
+            <ul>
+              <li><strong>Thesis:</strong> Interaktive Steuerung von Showlaserprojektoren mit dem Trackingsystem Kinect</li>
+              <li>Schwerpunkte: Kollaborative Systeme, Visualisierung, Mensch-Maschine-Interaktion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">2007 – 2010</div>
+          <div class="entry-body">
+            <h3>Bachelor of Science (B.Sc.) – Wirtschaftsinformatik <span class="grade">Note: 2.2</span></h3>
+            <div class="company">Hochschule Reutlingen</div>
+            <ul>
+              <li><strong>Thesis:</strong> Nebenläufigkeit von Transaktionen innerhalb einer Webanwendung</li>
+              <li>Schwerpunkte: Informatik-Grundlagen, Softwareentwicklung, Betriebswirtschaft</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dot"></div>
+          <div class="entry-date">2006</div>
+          <div class="entry-body">
+            <h3>Allgemeine Hochschulreife <span class="grade">Note: 2.6</span></h3>
+            <div class="company">Philipp-Matthäus-Hahn-Schule Balingen – Technisches Gymnasium</div>
+            <ul>
+              <li>Fachrichtung: Gestaltungs- und Medientechnik</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ KENNTNISSE & FÄHIGKEITEN ═══ -->
+    <div class="section">
+      <h2 class="section-title">Kenntnisse &amp; Fähigkeiten</h2>
+      <p class="skills-legend"><strong>Expert:</strong> im Produktivbetrieb verantwortet, inkl. Architektur
+        und Betrieb &nbsp;·&nbsp; <strong>Fortgeschritten:</strong> mehrfach produktiv eingesetzt
+        &nbsp;·&nbsp; <strong>Grundkenntnisse:</strong> eingesetzt, wenn das Problem es verlangte</p>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h4>Frontend</h4>
+          <p><span class="skill-level expert">Expert</span>Typescript, Angular, HTML</p>
+          <p><span class="skill-level advanced">Fortgeschritten</span>CSS, SASS</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Svelte(kit), Vue.js, Next.js / React</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Backend</h4>
+          <p><span class="skill-level expert">Expert</span>Nest.js, Laravel, PHP</p>
+          <p><span class="skill-level advanced">Fortgeschritten</span>Express.js, Python, C#</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Java, Go</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Cloud &amp; Infrastruktur</h4>
+          <p><span class="skill-level expert">Expert</span>GCP, STACKIT, Docker, Kubernetes, Terraform, Portainer</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Ansible</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>CI/CD &amp; DevOps</h4>
+          <p><span class="skill-level expert">Expert</span>ArgoCD, Bitbucket Pipelines, GitHub</p>
+          <p><span class="skill-level advanced">Fortgeschritten</span>Bamboo, GitLab, Dash0</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Grafana, Prometheus, Datadog</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Datenbanken</h4>
+          <p><span class="skill-level expert">Expert</span>MongoDB, MySQL, Redis</p>
+          <p><span class="skill-level advanced">Fortgeschritten</span>MariaDB</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Postgres, CouchDB, InfluxDB</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Security</h4>
+          <p><span class="skill-level expert">Expert</span>OAuth2, OpenID Connect, Trivy, Zero Trust</p>
+          <p><span class="skill-level advanced">Fortgeschritten</span>Keycloak</p>
+          <p><span class="skill-level familiar">Grundkenntnisse</span>Istio</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Methoden &amp; Prozesse</h4>
+          <p><span class="skill-level expert">Expert</span>SCRUM, Clean Code, GitOps, Extreme Programming, Microservices, Domain-Driven Design</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Tools</h4>
+          <p><span class="skill-level expert">Expert</span>Visual Studio Code, Jira, Confluence, Git, Docker Compose</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ SPRACHEN ═══ -->
+    <div class="section">
+      <h2 class="section-title">Sprachen</h2>
+      <div class="languages">
+        <span><strong>Deutsch</strong></span>
+        <span><strong>Englisch</strong></span>
+      </div>
+    </div>
+
+    <!-- ═══ ZERTIFIKATE ═══ -->
+    <div class="section">
+      <h2 class="section-title">Zertifikate &amp; Trainings</h2>
+      <div class="compact-list">
+        <div class="compact-item">
+          <span class="name">Professional Scrum Master I (PSM I)</span>
+          <span class="year">2023 · Scrum.org</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Professional Scrum Product Owner I (PSPO I)</span>
+          <span class="year">2023 · Scrum.org</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Führungskräfte-Training</span>
+          <span class="year">2022 · Mario Cristiano (Next Level Leadership)</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Englisch Sprachtraining</span>
+          <span class="year">2019 – 2020 · Impuls Sprachentraining GbR</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">FirstSpirit Developer Training Basic</span>
+          <span class="year">2018 · e-Spirit AG</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Angular Developer Training</span>
+          <span class="year">2018 · Orientation in Objects GmbH</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Docker Fundamentals + Enterprise Operations</span>
+          <span class="year">2017 · AKRA GmbH</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ KONFERENZEN ═══ -->
+    <div class="section">
+      <h2 class="section-title">Konferenzen &amp; Vorträge</h2>
+      <div class="compact-list">
+        <div class="compact-item">
+          <span class="name">Cidaas Connect (Identity &amp; Access Management) <span class="badge badge-speaker">2× Speaker</span></span>
+          <span class="year">2023 / 2024 · Rust</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Cloud Fest <span class="badge badge-attendee">Teilnehmer</span></span>
+          <span class="year">2022 – 2024 · Rust</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">DevOps Con Hybrid Edition <span class="badge badge-attendee">Teilnehmer</span></span>
+          <span class="year">2022 · München</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Machine Learning &amp; IOT Conference <span class="badge badge-attendee">Teilnehmer</span></span>
+          <span class="year">2019 · München</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">Javascript, Angular, React &amp; HTML Days <span class="badge badge-attendee">Teilnehmer</span></span>
+          <span class="year">2018 · München</span>
+        </div>
+        <div class="compact-item">
+          <span class="name">API &amp; Microservices Summit <span class="badge badge-attendee">Teilnehmer</span></span>
+          <span class="year">2017 · Berlin</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ LEIDENSCHAFTEN ═══ -->
+    <div class="section">
+      <h2 class="section-title">Leidenschaften</h2>
+      <div class="skill-card" style="border: none; background: transparent; padding: 0;">
+        <p>Software-Entwicklung &amp; Architektur · Verteilte Systeme · Cloud &amp; DevSecOps · Resiliente Software ·
+          Microservices · Generative KI · IOT · Agile Produktentwicklung · Hausautomation · FPV-Drohnen ·
+          Flipperautomaten</p>
+      </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <div class="footer">
+      michaelschempp.de · Stand: September 2026
+    </div>
+
   </div>
 </body>
 
