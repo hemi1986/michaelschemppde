@@ -21,7 +21,7 @@ const cv = await getCV(lang);
     <div class="mb-12 p-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-surface)] flex items-center gap-3">
       <span class="font-mono text-xs text-[var(--color-text-muted)]">📄</span>
       <span class="text-sm text-[var(--color-text-muted)]">
-        {tr.pro.cvPdfHint} <a href={`${base}/pro/contact`} class="text-[var(--color-pro)] hover:underline">{tr.pro.cvPdfLink}</a>
+        {tr.pro.cvPdfHint} <a href="/files/pro/lebenslauf.pdf" download class="text-[var(--color-pro)] hover:underline">{tr.pro.cvPdfLink}</a>
       </span>
     </div>
 
