@@ -68,6 +68,15 @@ export default {
     contactTitle: 'Contact',
     contactDesc: 'Want to talk pinball, arcade or retro? Here is where you can find me.',
   },
+  footer: {
+    imprint: 'Legal Notice',
+    privacy: 'Privacy',
+  },
+  notFound: {
+    title: 'Page not found',
+    text: 'This page does not exist or has been moved.',
+    home: '← Back to home',
+  },
   common: {
     switchLang: 'Deutsch',
     publishedOn: 'Published on',

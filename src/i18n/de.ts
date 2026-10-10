@@ -68,6 +68,15 @@ export default {
     contactTitle: 'Kontakt',
     contactDesc: 'Reden über Flipper, Arcade und Retro? Hier findest du mich.',
   },
+  footer: {
+    imprint: 'Impressum',
+    privacy: 'Datenschutz',
+  },
+  notFound: {
+    title: 'Seite nicht gefunden',
+    text: 'Diese Seite existiert nicht oder wurde verschoben.',
+    home: '← Zurück zur Startseite',
+  },
   common: {
     switchLang: 'English',
     publishedOn: 'Veröffentlicht am',

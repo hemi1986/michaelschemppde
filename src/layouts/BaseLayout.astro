@@ -1,7 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import '../styles/global.css';
-import { getLang } from '../i18n';
+import { getLang, getLocalePath, t } from '../i18n';
 
 interface Props {
   title: string;
@@ -11,6 +11,7 @@ interface Props {
 
 const { title, description = 'Michael Schempp — Software Architect & Pinball Nerd', section } = Astro.props;
 const lang = getLang(Astro.url);
+const tr = t(lang);
 ---
 
 <!doctype html>
@@ -42,9 +43,9 @@ const lang = getLang(Astro.url);
       <span class="mx-2 opacity-30">·</span>
       <span>michaelschempp.de</span>
       <span class="mx-2 opacity-30">·</span>
-      <a href="/impressum" class="hover:text-[var(--color-text)] transition-colors">Impressum</a>
+      <a href={getLocalePath(lang, '/impressum')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.imprint}</a>
       <span class="mx-2 opacity-30">·</span>
-      <a href="/datenschutz" class="hover:text-[var(--color-text)] transition-colors">Datenschutz</a>
+      <a href={getLocalePath(lang, '/datenschutz')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.privacy}</a>
     </footer>
   </body>
 </html>
