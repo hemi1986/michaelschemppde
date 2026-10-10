@@ -35,17 +35,19 @@ A High Speed is currently being restored as well... Oh dear... That somehow beca
 
 
 ## Which is your favourite pinball machine?
-Dune and Judge Dredd
+Dune and Judge Dredd. Judge Dredd certainly because it was the first machine I ever owned, and Dune is simply, just like the film, an absolute audiovisual knockout. I would even
+go so far as to say that for me Dune has become the best pinball machine of all time. The theme is implemented perfectly, it's just a huge amount of fun to play and it doesn't get
+boring.
 
 
 ## What is the Flippermuseum Eschbach and what do you do there?
-The Flippermuseum in Eschbach is a club of other crazy people who tick the way I do. Strangely enough, I'm one of the youngest there, hehe :D
+The Flippermuseum in Eschbach is a club of other crazy people who are wired the way I am. Strangely enough, I'm one of the youngest there, hehe :D
 I'm a member, some of my machines are there, and I simply love tinkering with the machines there, repairing and modding them, and chatting with
 like-minded people.
 
 
 ## Real pinball or virtual pinball?
-Quite clearly: real pinball
+Quite clearly: real pinball. You can do a lot with virtual pinball machines these days, but unfortunately they can't replace the real feeling, including real physics.
 
 
 ## Do you repair or restore pinball machines for other people?
@@ -55,15 +57,15 @@ I'm sure we can talk about a lot of things.
 
 
 ## I want to buy my first pinball machine – what should I look out for?
-Oof.... Pinball machines are very expensive. Even the old ones, and there's a lot of cheating and lying going on... As with all expensive toys for men. I'd recommend
+Oof.... Pinball machines are very expensive. Even the old ones, and there's a lot of cheating and lying going on... As with all expensive toys. I'd recommend
 coming by our pinball museum (or a similar place near you) and talking to people who know their stuff and have been in the hobby for a while.
 The Flippermarkt forum is certainly always a good starting point for getting a taste of the hobby, too. If you want to buy a new machine and have the necessary
-cash, go to a dealer like Freddys Pinball Paradise, Pinball Universe or RS-Pinball and play as many machines as possible to find out which one
+cash, go to a dealer like Freddy's Pinball Paradise, Pinball Universe or RS-Pinball and play as many machines as possible to find out which one
 you like.
 
 
 ## Where do you get spare parts for old pinball machines?
-There are various specialist shops online such as Pinwitch, PU-Parts, Freddys Pinball Paradise and so on, or there's the Flippermarkt forum.
+There are various specialist shops online such as Pinwitch, PU-Parts, Freddy's Pinball Paradise and so on, or there's the Flippermarkt forum.
 
 
 ## Which 3D printer and CAD software do you use?
