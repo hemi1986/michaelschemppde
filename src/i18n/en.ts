@@ -71,6 +71,15 @@ export default {
   footer: {
     imprint: 'Legal Notice',
     privacy: 'Privacy',
+    faq: 'FAQ',
+  },
+  faq: {
+    title: 'FAQ',
+    desc: 'Questions I get asked a lot — about work and about the hobby.',
+    proTitle: 'Professional',
+    hobbyTitle: 'Hobby',
+    empty: 'Answers coming soon.',
+    unanswered: 'unanswered — only visible in dev mode',
   },
   notFound: {
     title: 'Page not found',

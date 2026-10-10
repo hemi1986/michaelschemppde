@@ -71,6 +71,15 @@ export default {
   footer: {
     imprint: 'Impressum',
     privacy: 'Datenschutz',
+    faq: 'FAQ',
+  },
+  faq: {
+    title: 'FAQ',
+    desc: 'Fragen, die mir öfter gestellt werden — beruflich wie privat.',
+    proTitle: 'Beruflich',
+    hobbyTitle: 'Hobby',
+    empty: 'Antworten folgen bald.',
+    unanswered: 'noch offen — nur im Dev-Modus sichtbar',
   },
   notFound: {
     title: 'Seite nicht gefunden',

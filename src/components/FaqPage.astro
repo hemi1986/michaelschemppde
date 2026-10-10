@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLang, t, type Lang } from '../i18n';
+import { getFaq } from '../content/utils';
+
+const lang = getLang(Astro.url) as Lang;
+const tr = t(lang);
+
+// Unanswered questions stay hidden on the built site, but show up in dev so they can be filled in
+const showUnanswered = import.meta.env.DEV;
+
+const sections = (await Promise.all(
+  (['pro', 'hobby'] as const).map(async key => ({
+    key,
+    title: key === 'pro' ? tr.faq.proTitle : tr.faq.hobbyTitle,
+    items: (await getFaq(key, lang)).filter(item => item.answer || showUnanswered),
+  }))
+)).filter(section => section.items.length > 0);
+---
+
+<BaseLayout title={tr.faq.title} description={tr.faq.desc}>
+  <div class="max-w-4xl mx-auto px-4 py-16">
+
+    <div class="mb-12">
+      <p class="font-mono text-sm text-[var(--color-text-muted)] mb-4 tracking-widest">://faq</p>
+      <h1 class="text-4xl font-bold mb-4">{tr.faq.title}</h1>
+      <p class="text-[var(--color-text-muted)]">{tr.faq.desc}</p>
+    </div>
+
+    {sections.length === 0 && (
+      <p class="font-mono text-sm text-[var(--color-text-muted)]">{tr.faq.empty}</p>
+    )}
+
+    {sections.map(section => (
+      <section id={section.key} class="mb-16 scroll-mt-20" style={`--faq-accent: var(--color-${section.key})`}>
+        <h2 class="font-mono text-xs tracking-widest uppercase mb-6 text-[var(--faq-accent)]">
+          {section.key.toUpperCase()}://{section.title}
+        </h2>
+        <div class="grid gap-3">
+          {section.items.map(item => (
+            <details id={item.id} class="faq-item group rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-surface)] scroll-mt-20 open:border-[var(--faq-accent)] transition-colors">
+              <summary class="flex items-start gap-3 p-4 cursor-pointer list-none font-semibold hover:text-[var(--faq-accent)] transition-colors">
+                <span class="font-mono text-[var(--faq-accent)] transition-transform group-open:rotate-90">›</span>
+                <span class="flex-1" set:html={item.question} />
+                {!item.answer && (
+                  <span class="font-mono text-xs font-normal text-[var(--color-text-muted)]">{tr.faq.unanswered}</span>
+                )}
+              </summary>
+              {item.answer && (
+                <div class="prose px-4 pb-1 pl-10 text-[var(--color-text-muted)]" set:html={item.answer} />
+              )}
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item :global(.prose a) { color: var(--faq-accent); }
+</style>
+
+<script>
+  // Open the question a link points at (e.g. /faq#some-question)
+  const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (target instanceof HTMLDetailsElement) target.open = true;
+</script>

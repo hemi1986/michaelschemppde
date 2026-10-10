@@ -91,6 +91,33 @@ export async function getCV(lang: Lang): Promise<CvEntry> {
   return de[0];
 }
 
+export interface FaqItem {
+  id: string;
+  question: string;
+  /** Rendered answer HTML — empty string while the question is still unanswered. */
+  answer: string;
+}
+
+/** Splits a rendered FAQ file into its questions: every `## heading` is a question, everything below it the answer. */
+function parseFaq(html: string): FaqItem[] {
+  const headings = [...html.matchAll(/<h2[^>]*?(?:\sid="([^"]*)")?[^>]*>([\s\S]*?)<\/h2>/g)];
+  return headings.map((match, i) => {
+    const start = match.index! + match[0].length;
+    const end = i + 1 < headings.length ? headings[i + 1].index! : html.length;
+    const answer = html.slice(start, end).replace(/<!--[\s\S]*?-->/g, '').trim();
+    const hasText = answer.replace(/<[^>]+>/g, '').trim().length > 0;
+    return { id: match[1] ?? `faq-${i + 1}`, question: match[2], answer: hasText ? answer : '' };
+  });
+}
+
+/** FAQ of one section, preferring the requested lang, falling back to de. */
+export async function getFaq(section: Section, lang: Lang): Promise<FaqItem[]> {
+  const find = async (l: Lang) =>
+    (await safeGetCollection(`faq-${l}`)).find((e: any) => e.id === section) as { rendered?: { html: string } } | undefined;
+  const entry = (lang === 'en' ? await find('en') : undefined) ?? await find('de');
+  return parseFaq(entry?.rendered?.html ?? '');
+}
+
 /** All slugs from the de collection — used by getStaticPaths to ensure all routes exist. */
 export async function getAllSlugs(section: Section, type: ContentType): Promise<string[]> {
   const key = `${section}-${type}-de` as const;

@@ -51,6 +51,9 @@ const hobbyAboutSchema = z.object({
   activities: z.array(z.object({ icon: z.string(), label: z.string(), sub: z.string() })),
 });
 
+const faq = (base: string) =>
+  defineCollection({ loader: glob({ pattern: '*.md', base }), schema: z.object({}) });
+
 const blog = (base: string) =>
   defineCollection({ loader: glob({ pattern: '*.{md,mdx}', base }), schema: blogSchema });
 
@@ -72,4 +75,6 @@ export const collections = {
   'hobby-about-en':    defineCollection({ loader: glob({ pattern: '*.md', base: './src/content/hobby/about/en' }), schema: hobbyAboutSchema }),
   'pro-cv-de':         defineCollection({ loader: glob({ pattern: '*.md', base: './src/content/pro/cv/de' }), schema: cvSchema }),
   'pro-cv-en':         defineCollection({ loader: glob({ pattern: '*.md', base: './src/content/pro/cv/en' }), schema: cvSchema }),
+  'faq-de':            faq('./src/content/faq/de'),
+  'faq-en':            faq('./src/content/faq/en'),
 };
