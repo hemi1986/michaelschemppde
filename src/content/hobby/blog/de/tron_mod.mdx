@@ -1,0 +1,163 @@
+---
+title: "FLYNN'S Topper & Pinduino für unseren TRON: Legacy Flipper"
+description: "Wir haben bei uns im Flippermuseum einen Stern Tron:Legacy Pro Flipper. Im Gegensatz zur Limited Edition fehlte ihm aber aber das gewisse Extra. Das konnte ich nicht zulassen und hab bissle gebastelt"
+date: 2026-04-26
+tags: ["Pinball", "TRON: Legacy", "Stern", "Pinduino", "Topper", "LED"]
+---
+
+import LightboxImage from '@components/LightboxImage.astro';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+
+Zugegeben: Ich bin großer Fan des 2. Tron Films und mag ihn auch eigentlich lieber wie den ersten Teil. Ich weiß: Blasphemie. Gilt der zweite Teil gemeinhin doch als 
+kein so guter Film. Ich bin jedoch für den ersten Tron iwie zu jung bzw. bin damit einfach nicht aufgewachsen und ich finde den 2. Teil audiovisuell einfach eine Granate!
+Ich bin eigentlich kein großer Fan von Daft Punk aber zusammen mit den Visuals aus diesem Film bereitet mir das einfach eine menge Freude!
+
+Aber ich bin ja kein Filmkritiker sondern Flipperschrauber- Modder, Frak, hehe! Deshalb gehts hier auch nicht um den Film sondern um den Flipper von Stern Pinball aus dem Jahre 2011.
+Das war diese Phase als Stern als letzter Flipperhersteller überhaupt übrig geblieben ist und relativ reduzierte Flipperautomaten gebaut hat. Warum reduziert? Naja, in den 2010ern
+bist du mit Flipperautomaten sicherlich nicht reich geworden. Williams hat damals vor 10 Jahren ihr Geschäft eingestellt und der Markt lag am Boden also musste Budgetorientiert gebaut werden
+und das merkt man den Flippern aus der Zeit auch an (Finde ich).
+
+Trotzdem ist mit Tron:Legacy damals ein aus heutiger Sicht moderner Klassiker entstanden. Ein Flipper mit toller Atmosphäre, toller Integration des Themas und auch einer Menge
+Spielspaß (Hier scheiden sich ja bekanntlich die Geister aber ich find den toll! Nicht zuletzt wegen dem Sound :D).
+
+Es gab eine auf 400 Stück limitierte Special Edition die ein paar coole Gimmicks hatte. Unter anderem beleuchtete Rampen über so einen Lichtschlauch. Die Rampen repräsentieren
+im Flipper im Prinzip diese lustigen Leucht-Motorräder mit denen die im Film rumfahren. Ihr wisst schon, die die diese Lichtbaöken hinter sich herziehen und wenn man da reinfährt 
+ist man praktisch "Game Over". Das fand ich schon immer ziemlich cool umgesetzt und allgemein catcht mich ja sowieso diese 80er Jahre Ästhetik und das ganze Arcade Zeugs.
+
+Leider haben wir im Flippermuseum nur eine Pro-Version des Flippers und die hat diese Gimmicks der SE-Version leider nicht. Aber da auf die Pinball-Community verlass ist und immer 
+irgendjemand irgendwas macht, das er verkaufen kann gibt es da coolen Ersatz der die ganze Sache eigentlich noch besser macht wie in der SE-Version.
+
+  <LightboxImage
+    src="/images/hobby/tron_modding/tron_se.png"
+    alt="Stern Tron Limited Edition inkl. der beleuchteten Rampen"
+    caption="Stern Tron Limited Edition inkl. der beleuchteten Rampen"
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+## Die Idee(n)
+
+Wenn man so im Internet unterwegs ist und grad einen neuen Flipper ins Museum bekommen hat den man eigentlich ganz geil findet, sucht man ja in der Regel immer so bisschen
+rum, was man da so für tolle Mods einbauen könnte (Insbesondere wenn man nur die Pro-Edition ergattert hat). Zumindest ist das für mich völlig normal :D
+
+Es gibt schon lange ein Projekt namens "Pinduino" om der Flipperszene mit dem man langweilige Flipper mit tollen zusätzulichen Leucht-Effeckten in Form von 
+adressierbaren LED-Strips aufhübschen kann (<a href="https://github.com/elyons/pinduino" target="_blank">Pinduino Projekt auf Github</a>). 
+
+Das funktioniert im Prinzip so, dass man eine Zusatzplatine mit Arduino auf die Flipperplatinen aufsteckt und dort bspw. die Steuersignale von Spulen, Flashern oder Optos
+abgreift und auf diese "Events" dann eben über Software aufm Arduino Zusatzhardware (In dem Fall adressierbare LED-Strips) ansteuern kann.
+
+Ich bin dann auf Pinside relativ schnell auf das hier gestoßen: <a href="https://pinside.com/pinball/shops/shop/1025-professor-pinball/08572-tron-interactive-ramp-lighting-20-gel-cob-leds" target="_blank">Tron Interactive Ramp Lighting 2.0 (Gel COB LEDs)</a>
+<YouTube id="https://youtu.be/WA6UzdlZpi4?si=dY6PbjgF7Q7q7_Yi" />
+
+
+Und ich so:
+
+![ChrisPrattisAmused](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG00M3kxbmtlcWd1cjZxYm1wMW9ldXNwYXM3OHZkaGJzbzhqdWo5ZCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/90F8aUepslB84/giphy.gif)
+
+
+Ich wusste also, das muss ich unbedingt haben und in den Flipper einbauen. 
+
+Damit aber nicht genug. Ich hatte unabhängig von den LEDs beim Stöbern auf Thingiverse mal noch so einen "FLYNN'S" Display zum Selberdrucken und basteln gefunden. Flynn heißt einer Protagonisten im Tron Film
+und Erfinder des Spiels Tron. Der betreibt im Film auch eine Spielhalle (Welch Zufall) und da hängt außen am Gebäude ebenfalls so ein Schriftzug. Ich dachte dann so:
+"Man das wäre doch eigentlich der ideale Topper für den Tron".
+
+Leider finde ich das Ding auf Thingiverse nimmer :( Aber sieht im Prinzip so aus:
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_3dprint.jpg"
+    alt="FLYNNS Schild von Thingiverse"
+    caption="FLYNNS Schild von Thingiverse"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+So. 2 Ideen, viel zu tun. Letsgo!
+
+## Umsetzung
+
+Bzgl. des Pinduinos hab ich mal auf Flippermarkt.de geschaut und jemanden gefunden der fertige Pinduinu Platinen verkauft. Zufälligerweise hatte der noch eine für Stern Whitestar über. 
+Dann noch schnell auf Aliexpress so LED-Streifen wie in dem Video gekauft. Es handelt sich hierbei um sogenannte COB-LED-Strips. 
+
+Die Abkürzung COB steht für „Chip-on-Board“ und beschreibt eine LED-Technologie, bei der mehrere COB-LED-Chips direkt auf einer Aluminium-Platine platziert werden.
+Eine COB-LED ist eine Art von Lämpchen, das sehr hell leuchten kann. Stell dir vor, anstatt eine einzige kleine Glühbirne zu haben, setzt man viele winzige Lichter 
+ganz eng zusammen auf ein kleines Plättchen. Weil diese vielen Lichter so nah beieinander sind, sieht es aus, als ob es nur ein großes Licht ist. Im Vergleich zu LED-Streifen 
+mit SMD-LEDs erzeugen COB-LED Streifen ein homogenes Lichtbild ohne sichtbare Lichtpunkte
+
+Da ich vor kurzem in den Tron noch ein Farbdisplay auf PPUC und ZeDMD eingebaut habe, welches auch 12V vom Flipper abgreift, wollte ich hier noch eine ordentliche Stromverteilung 
+für die Mods einbauen und hab mir noch eine Verteilerplatine auf ebay bestellt, welche die 12V über 4 Feinsicherungen aufteilt. Better Safe than Sorry.
+
+Netterweise hat mir das Forumsmitglied, die Software für mein Projekt bereits auf den Pinduino geflashed, somit muss ich da eigentlich gar nichts mehr machen. War sozusagen
+Plug&Play ;)
+
+Wer die Dateien sonst braucht, findet den Programmcode für alle möglichen Projekten (Pinduino unterstützt ja noch mehr Flipper) auf Github. Ich musste im Prinzip noch über das Script
+und die entsprechende Anleitung des Autors noch rausfinden auf welche Länge ich die LED-Strips kürzen musste.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/12v_versorgung.png"
+    alt="12V Verteilerplatine und Anschluss an die 12V vom Flipper"
+    caption="12V Verteilerplatine und Anschluss an die 12V vom Flipper"
+    imgClass="w-full rounded-lg object-cover"
+  />
+  <LightboxImage
+    src="/images/hobby/tron_modding/led_strip_mounting.png"
+    alt="Verkleben der COB-LED-Strips"
+    caption="Verkleben der COB-LED-Strips"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+Danach hab ich die Kabel konfektioniert, die Rampen ausgebaut und die LED-Strips auf die Rampen geklept (Das war ganz schön fummelig...). Danach alles miteinander verbunden und das 
+Ding hat auf Anhieb funktioniert und es sah einfach bombastisch aus. Alle anderen Kollegen im Museum waren ebenfalls absolut begeistert und es wertet den Tron wirklich massiv auf!
+
+Aber seht selbst:
+<YouTube id="https://www.youtube.com/shorts/VxNA5TyOTbA" />
+
+### Kommen wir also zum Topper. Der musste nämlich erstmal gebaut werden...
+
+Diese ganze Konstruktion funktioniert im Prinzip so, dass man die Buchstaben als Korpusse druckt, LED-Beleuchtung einbaut und dann einen Diffusor aus transparentem Material oben drauf 
+klatscht sowie die "Lienienmuster" dann darüber damit das wie so Neonröhren aussieht.
+
+Also erstmal alles in mehreren Durchgängen gedruckt:
+
+<LightboxImage
+    src="/images/hobby/tron_modding/tron_sign_print.png"
+    alt="3D-Datei des Apron-Halters"
+    caption="CAD-Entwurf des Clip-In-Halters."
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+Es stellte sich dann die Frage welche Beleuchtung ich da einbaue. Ich hatte aus einem älteren Projekt noch so Billo RGB-LED-Strip ausm
+Baumarkt den man mit so ner ollen Funkfernbedienung steuern kann. Den hab ich dann einfach in mehrere Teile geschnitten und hinten dran über ebenfalls noch verfügbare Verteiler vom Alien Flipper
+miteinander verbunden. 
+
+Dann alles zusammengeklebt mit Sekundenkleber und schon war das Ding ready und sah wirklich verdammt sexy aus!
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_led_strip.png"
+    alt="Zerteilte LED-Strips in die Buchstaben kleben"
+    caption="Zerteilte LED-Strips in die Buchstaben kleben"
+    imgClass="w-full rounded-lg object-cover"
+  />
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_finished.png"
+    alt="Das fertige FLYNN'S Schild"
+    caption="Das fertige FLYNN'S Schild"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+Irgendwann im Flippermuseum hab ich das Ding dann noch auf den Flipper gekloppt und naja was soll ich sagen? Das jetzt ein ganz anderer Flipper wie vorher und macht echt was her!
+
+  <LightboxImage
+    src="/images/hobby/tron_modding/tron_modded.png"
+    alt="Der aktuelle Tron Pro bei uns im Museum inkl. Topper und Light-Ramp Mod"
+    caption="Der aktuelle Tron Pro bei uns im Museum inkl. Topper und Light-Ramp Mod"
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+  Kommt doch mal bei uns vorbei, dann könnt ihr das gute Ding auch mal spielen ;) <a href="https://www.flippermuseum.org/" target="_blank">Flippermuseum Eschbach</a>
+
+  Bis zum nächsten mal!

@@ -1,0 +1,168 @@
+---
+title: "FLYNN'S Topper & Pinduino for Our TRON: Legacy Pinball"
+description: "We have a Stern Tron: Legacy Pro at our pinball museum. Unlike the Limited Edition, though, it was missing that certain something. I couldn't let that stand, so I did a bit of tinkering."
+date: 2026-04-26
+tags: ["Pinball", "TRON: Legacy", "Stern", "Pinduino", "Topper", "LED"]
+---
+
+import LightboxImage from '@components/LightboxImage.astro';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+
+I'll admit it: I'm a big fan of the second Tron movie, and I actually like it better than the first one. I know: blasphemy. After all, the second one is generally considered
+not that great a film. But I'm somehow too young for the first Tron, or rather I just didn't grow up with it, and audiovisually I think the second one is an absolute banger!
+I'm not really a big Daft Punk fan, but combined with the visuals from this movie it simply brings me a whole lot of joy!
+
+But I'm not a film critic, I'm a pinball tinkerer, modder, freak, hehe! So this isn't about the movie, it's about the Stern Pinball machine from 2011.
+That was the phase when Stern was the very last pinball manufacturer left standing and built fairly stripped-down machines. Why stripped-down? Well, in the 2010s
+you certainly weren't getting rich with pinball machines. Williams had shut down its pinball business about ten years earlier and the market was on the floor, so everything had to be built on a budget,
+and you can tell when you look at the machines from that era (in my opinion).
+
+Still, Tron: Legacy turned out to be what we'd now call a modern classic. A machine with great atmosphere, great integration of the theme, and a whole lot of
+fun to play (opinions famously differ on that one, but I think it's great! Not least because of the sound :D).
+
+There was a Special Edition limited to 400 units that had a few cool gimmicks. Among other things, illuminated ramps using a kind of light tube. In the game, the ramps basically represent
+those funky light cycles they ride around on in the movie. You know, the ones that trail those light beams behind them, and if you drive into one
+you're pretty much "Game Over". I've always thought that was implemented really nicely, and in general that 80s aesthetic and all the arcade stuff just gets me anyway.
+
+Unfortunately, we only have a Pro version of the machine at the pinball museum, and it doesn't have those SE gimmicks. But since you can always count on the pinball community and
+somebody is always making something they can sell, there's a cool substitute that actually makes the whole thing even better than on the SE version.
+
+  <LightboxImage
+    src="/images/hobby/tron_modding/tron_se.png"
+    alt="Stern Tron Limited Edition including the illuminated ramps"
+    caption="Stern Tron Limited Edition including the illuminated ramps"
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+## The Idea(s)
+
+When you're browsing the internet and you've just gotten a new machine into the museum that you actually think is pretty awesome, you usually start poking
+around to see what great mods you could install (especially if you only managed to grab the Pro edition). At least for me that's completely normal :D
+
+There's a long-running project in the pinball scene called "Pinduino" that lets you spruce up boring machines with great additional lighting effects in the form of
+addressable LED strips (<a href="https://github.com/elyons/pinduino" target="_blank">Pinduino project on GitHub</a>).
+
+The basic principle is that you plug an add-on board with an Arduino onto the pinball boards and tap, for example, the control signals of coils, flashers or optos,
+and then use software on the Arduino to drive additional hardware (in this case addressable LED strips) in response to those "events".
+
+On Pinside I then fairly quickly stumbled across this: <a href="https://pinside.com/pinball/shops/shop/1025-professor-pinball/08572-tron-interactive-ramp-lighting-20-gel-cob-leds" target="_blank">Tron Interactive Ramp Lighting 2.0 (Gel COB LEDs)</a>
+<YouTube id="https://youtu.be/WA6UzdlZpi4?si=dY6PbjgF7Q7q7_Yi" />
+
+
+And I was like:
+
+![ChrisPrattisAmused](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG00M3kxbmtlcWd1cjZxYm1wMW9ldXNwYXM3OHZkaGJzbzhqdWo5ZCZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/90F8aUepslB84/giphy.gif)
+
+
+So I knew I absolutely had to have this and install it in the machine.
+
+But that wasn't all. Independently of the LEDs, while browsing Thingiverse I had once found a "FLYNN'S" sign to print and build yourself. Flynn is one of the protagonists in the Tron movie
+and the inventor of the game Tron. In the movie he also runs an arcade (what a coincidence), and there's a sign just like that hanging on the outside of the building. So I thought:
+"Man, that would actually be the ideal topper for the Tron."
+
+Sadly, I can't find the thing on Thingiverse anymore :( But it basically looks like this:
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_3dprint.jpg"
+    alt="FLYNN'S sign from Thingiverse"
+    caption="FLYNN'S sign from Thingiverse"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+So. Two ideas, lots to do. Let's go!
+
+## Implementation
+
+For the Pinduino, I had a look on Flippermarkt.de and found someone who sells ready-made Pinduino boards. As luck would have it, he still had one for Stern Whitestar left over.
+Then I quickly bought LED strips like the ones in the video on AliExpress. These are so-called COB LED strips.
+
+The abbreviation COB stands for "chip-on-board" and describes an LED technology in which several COB LED chips are placed directly on an aluminium board.
+A COB LED is a kind of little lamp that can shine very brightly. Imagine that instead of having one single small light bulb, you put lots of tiny lights
+very close together on a small plate. Because these many lights are so close to each other, it looks as if it were just one big light. Compared to LED strips
+with SMD LEDs, COB LED strips produce a homogeneous light without visible light dots.
+
+Since I had recently installed a colour display based on PPUC and ZeDMD in the Tron, which also taps 12V from the machine, I wanted to add proper power distribution
+for the mods, so I ordered a distribution board on eBay that splits the 12V across four fuses. Better safe than sorry.
+
+Kindly enough, the forum member had already flashed the software for my project onto the Pinduino, so I didn't really have to do anything there. It was
+plug & play, so to speak ;)
+
+If you need the files otherwise, you'll find the program code for all kinds of projects (Pinduino supports other machines too) on GitHub. All I basically had to do was use the script
+and the author's instructions to figure out what length I needed to cut the LED strips to.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/12v_versorgung.png"
+    alt="12V distribution board and connection to the machine's 12V"
+    caption="12V distribution board and connection to the machine's 12V"
+    imgClass="w-full rounded-lg object-cover"
+  />
+  <LightboxImage
+    src="/images/hobby/tron_modding/led_strip_mounting.png"
+    alt="Gluing on the COB LED strips"
+    caption="Gluing on the COB LED strips"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+After that I made up the cables, removed the ramps and stuck the LED strips onto the ramps (that was pretty fiddly...). Then I connected everything, and the
+thing worked right away and simply looked spectacular. All the other colleagues at the museum were absolutely thrilled too, and it really is a massive upgrade for the Tron!
+
+But see for yourself:
+<YouTube id="https://www.youtube.com/shorts/VxNA5TyOTbA" />
+
+### So, on to the topper. That one had to be built first...
+
+The whole construction basically works like this: you print the letters as hollow bodies, install LED lighting, then slap a diffuser made of transparent material on
+top, followed by the "line patterns" over that, so it looks like neon tubes.
+
+So first, everything got printed in several runs:
+
+<LightboxImage
+    src="/images/hobby/tron_modding/tron_sign_print.png"
+    alt="FLYNN'S sign parts laid out on several print plates in the slicer"
+    caption="The parts of the FLYNN'S sign, spread across several print plates."
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+Then came the question of what lighting to put in there. From an older project I still had some cheapo RGB LED strip from the
+hardware store, the kind you control with a crappy little RF remote. I simply cut it into several pieces and connected them at the back using splitters I also still had lying around from the Alien pinball.
+
+Then I glued everything together with superglue, and just like that the thing was ready and looked really damn sexy!
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4">
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_led_strip.png"
+    alt="Gluing the cut-up LED strips into the letters"
+    caption="Gluing the cut-up LED strips into the letters"
+    imgClass="w-full rounded-lg object-cover"
+  />
+  <LightboxImage
+    src="/images/hobby/tron_modding/flynns_sign_finished.png"
+    alt="The finished FLYNN'S sign"
+    caption="The finished FLYNN'S sign"
+    imgClass="w-full rounded-lg object-cover"
+  />
+</div>
+
+At some point at the pinball museum I then whacked the thing onto the machine and, well, what can I say? It's a completely different machine than before and really makes an impression!
+
+  <LightboxImage
+    src="/images/hobby/tron_modding/tron_modded.png"
+    alt="The current Tron Pro at our museum including topper and light ramp mod"
+    caption="The current Tron Pro at our museum including topper and light ramp mod"
+    imgClass="w-full rounded-lg object-cover"
+  />
+
+  Come and visit us sometime, then you can play the good thing yourself ;) <a href="https://www.flippermuseum.org/" target="_blank">Flippermuseum Eschbach</a>
+
+  See you next time!
+
+---
+_translated with Claude_
+
+---
+_translated with Claude_
