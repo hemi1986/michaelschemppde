@@ -1,56 +1,69 @@
 ---
-subtitle: "Michael Schempp — Software Architect & Engineering Lead"
+subtitle: "Engineering lead and software architect with 15+ years of experience. I build development teams and the technical foundation they need to ship products on their own."
 experience:
-  - role: Team Lead Digital Development
+  - role: Team Lead “Digital Development”
     company: Europa-Park GmbH & Co Mack KG
-    period: "2020 — present"
+    period: "Dec 2021 — present"
     description: |
-      Status quo 2020: External agencies, fragmented systems, and little internal tech ownership. My mission: Building a true in-house development department for Germany's largest theme park from scratch – starting as Manager Digital Platforms, and since late 2021 as Team Lead. The team of three we were back then has grown to 12 people today.
+      The brief: build an in-house development department from the ground up. I laid the technical foundation myself and then grew the team to the point where it builds products on top of it independently. Including handing over product ownership.
 
-      My first end boss: The “MackOne Account” – a central CIAM/SSO for the entire digital landscape. After that, I focused on structuring the team and the technology. We completely flipped the tech stack: Moving away from manual FTP uploads to a clean hybrid-cloud architecture (GCP & STACKIT). Today, everything runs containerized on Kubernetes, infrastructure is code (Terraform), and deployments are fully automated via ArgoCD.
+      Leadership & enablement: grew the in-house development department from a team of three to 12 people today and introduced SCRUM, including training both the team and the executive board. The technical foundation: Angular and Nest.js, a hybrid cloud environment (GCP + STACKIT) with Terraform and Kubernetes, plus GitOps and CI/CD with ArgoCD. On top of that, I defined how our domain services are built: the blueprint the team has been building new services against ever since. After two years as product owner for the MackOne Account, I handed the role over to a product owner within my own team.
 
-      My job is not to build everything myself, but to grow the team to the point where it can. I defined how our domain services are built – the team built them: 9 services in production today, one more in development. The pattern keeps repeating: the MackOne web apps initially came from an agency and have long since moved fully into the team, and my PrivacyLog prototype became a product of its own with its own product ownership. And for the new hybrid AI team, which I run together with the Data team lead, we hired internally after an agency kickstart to keep the know-how in the house for good. What we are building is “Ecki”, an agentic AI platform.
+      What the team built on it: 9 domain services in production, one more in development. The hosted pages and user profile of the MackOne Account initially came from an agency and now sit entirely with the team. My PrivacyLog prototype for GDPR-compliant data deletion became a product of its own with its own product ownership.
 
-      The future strategy is clear: As a platform team, we build the stable core services that external partners and other teams can securely build upon.
-    tags: [Engineering Leadership, Platform Engineering, Cloud Native, Kubernetes, Terraform, CIAM, Agentic AI]
+      Hybrid AI team: jointly led with the team lead for Customer & Market Intelligence; I own the technical side. After an external agency kickstarted the effort, we hired internally to bring the know-how into the company for good. What we are building is “Ecki”, an agentic AI platform.
+    tags: [Engineering Leadership, Enablement, Kubernetes, GCP, STACKIT, Terraform, ArgoCD, SCRUM, Agentic AI]
 
-  - role: Software Architect
+  - role: Manager Digital Platforms
+    company: Europa-Park GmbH & Co Mack KG
+    period: "Jul 2020 — Dec 2021"
+    description: |
+      Technical project lead for introducing a central customer identity & access management system for all digital platforms (shops, apps, marketing automation): selected and integrated cidaas as the identity backend, built it out as the “MackOne Account” product and later took over as product owner.
+
+      Alongside that, advised teams and service providers on software architecture, DevOps and standardised APIs, and trained colleagues in Docker, Kubernetes, infrastructure as code and CI/CD.
+    tags: [CIAM, SSO, Docker, Kubernetes, DevSecOps, IaC, CI/CD]
+
+  - role: Software Developer & Architect
     company: Groz-Beckert KG
-    period: "2017 — 2020"
+    period: "Apr 2017 — Jun 2020"
     description: |
-      Architecting and building a new microservice ecosystem for internal corporate applications. The stack: Nest.js, NATS Messaging, Kubernetes including Istio service mesh, and Keycloak as identity provider. 
-      
-      Parallel to this, developing Angular frontends for digital sales apps and handling Ops for a cloud product on IBM infrastructure. The intensive work with Keycloak and SSO served as the perfect blueprint for my later platform projects.
-    tags: [Microservices, Kubernetes, Nest.js, Angular, SSO/IAM, Istio]
+      Designed and implemented a new microservice-based software architecture: Kubernetes with Istio service mesh, Nest.js services, NATS messaging, Keycloak as identity provider and a central REST API gateway.
+
+      Alongside that, designed and built Angular components for digital sales apps, and administered and further developed the cloud product “Ideal Needle Handling” (Meteor.js, MongoDB, IBM Cloud).
+    tags: [Microservices, Kubernetes, Istio, Nest.js, Angular, NATS, Keycloak]
 
   - role: Software Developer
     company: Various Companies
-    period: "until 2017"
+    period: "2013 — 2017"
     description: |
-      The grind phase: Hands-on development at various SMEs. Building inventory management systems, cloud-based POS solutions, and IoT devices for hardware control. Full-stack focus with PHP, MySQL, Node.js, and JavaScript. This is where my fundamental system and architecture skills were forged.
-    tags: [PHP, Node.js, MySQL, JavaScript, Full Stack]
+      Hands-on development at mid-sized companies: an online point-of-sale solution for retail with an interface to a cloud ERP, an IoT device for driving receipt printers and cash drawers from the cloud, monitoring apps for sales figures from roughly 50 locations, and further development of an inventory management system. All of it with PHP, Node.js, MySQL and JavaScript, including Linux server administration.
+    tags: [PHP, Node.js, MySQL, JavaScript, Linux, IoT]
 
 skills:
-  - category: Architecture
-    items: "Distributed Systems, Microservices, Resilient Software, Clean Code"
+  - category: Architecture & Methods
+    items: "Distributed Systems, Microservices, Domain-Driven Design, Clean Code, GitOps"
   - category: Leadership
-    items: "Team Building, Scrum (PSM 1, PSPO 1), Agile Product Development"
+    items: "Team Building, SCRUM (PSM I, PSPO I), Agile Product Development"
   - category: Cloud & Infrastructure
-    items: "Kubernetes, GCP, STACKIT, Terraform, Ansible, Docker"
-  - category: Software Engineering
-    items: "TypeScript, JavaScript, Nest.js, Angular, PHP"
-  - category: DevSecOps
-    items: "CI/CD (ArgoCD, Bamboo), OAuth2 & OpenID Connect, Istio, Grafana, Prometheus, Dash0"
+    items: "GCP, STACKIT, Kubernetes, Docker, Terraform"
+  - category: Frontend & Backend
+    items: "TypeScript, Angular, Nest.js, PHP, Laravel"
+  - category: CI/CD & DevOps
+    items: "ArgoCD, Bitbucket Pipelines, GitHub, Dash0"
+  - category: Security
+    items: "OAuth2, OpenID Connect, Zero Trust, Keycloak"
   - category: Databases
-    items: "MongoDB, CouchDB, MySQL, Redis"
+    items: "MongoDB, MySQL, Redis"
   - category: Innovation
     items: "Generative AI, AI Agents, IoT"
 
 education:
   - degree: "M.Sc. Media and Communication Informatics"
     institution: "Reutlingen University"
+    year: "2013"
   - degree: "B.Sc. Business Informatics"
     institution: "Reutlingen University"
+    year: "2010"
   - degree: "Professional Scrum Master I (PSM I)"
     institution: "Scrum.org"
     year: "2023"
