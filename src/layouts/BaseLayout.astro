@@ -51,5 +51,14 @@ const tr = t(lang);
         <a href={getLocalePath(lang, '/datenschutz')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.privacy}</a>
       </span>
     </footer>
+    <script is:inline>
+      // External links always open in a new tab
+      for (const a of document.querySelectorAll('a[href^="http"]')) {
+        if (a.host !== location.host) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+      }
+    </script>
   </body>
 </html>
