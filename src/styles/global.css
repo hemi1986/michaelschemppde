@@ -55,6 +55,11 @@ body {
   color: var(--color-text);
 }
 
+/* Long words (domains, German compounds) must not widen the page on mobile */
+h1, h2, h3 {
+  overflow-wrap: break-word;
+}
+
 .glow-pro {
   text-shadow: 0 0 8px var(--color-pro-glow), 0 0 20px var(--color-pro-dim);
 }

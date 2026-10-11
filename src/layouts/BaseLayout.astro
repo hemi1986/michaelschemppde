@@ -38,16 +38,18 @@ const tr = t(lang);
     <main>
       <slot />
     </main>
-    <footer class="mt-24 border-t border-[var(--color-border)] py-8 text-center text-sm text-[var(--color-text-muted)] font-mono">
+    <footer class="mt-24 border-t border-[var(--color-border)] px-4 py-8 flex flex-col sm:flex-row items-center justify-center gap-y-1 text-center text-sm text-[var(--color-text-muted)] font-mono">
       <span>© {new Date().getFullYear()} Michael Schempp</span>
-      <span class="mx-2 opacity-30">·</span>
+      <span class="mx-2 opacity-30 hidden sm:inline">·</span>
       <span>michaelschempp.de</span>
-      <span class="mx-2 opacity-30">·</span>
-      <a href={getLocalePath(lang, '/faq')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.faq}</a>
-      <span class="mx-2 opacity-30">·</span>
-      <a href={getLocalePath(lang, '/impressum')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.imprint}</a>
-      <span class="mx-2 opacity-30">·</span>
-      <a href={getLocalePath(lang, '/datenschutz')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.privacy}</a>
+      <span class="mx-2 opacity-30 hidden sm:inline">·</span>
+      <span>
+        <a href={getLocalePath(lang, '/faq')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.faq}</a>
+        <span class="mx-2 opacity-30">·</span>
+        <a href={getLocalePath(lang, '/impressum')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.imprint}</a>
+        <span class="mx-2 opacity-30">·</span>
+        <a href={getLocalePath(lang, '/datenschutz')} class="hover:text-[var(--color-text)] transition-colors">{tr.footer.privacy}</a>
+      </span>
     </footer>
   </body>
 </html>
