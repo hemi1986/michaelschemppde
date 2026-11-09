@@ -1,0 +1,138 @@
+---
+title: "Slopcore: How I Fell Down the Rabbit Hole and Built an Agent Workflow for Music Videos"
+description: "A viral video about AI agents replacing an entire dev team got me hooked on a new genre: Slopcore. One weekend later I had my own workflow for music videos and a YouTube channel. Oops."
+date: 2026-11-09
+tags: ["Slopcore", "Claude Code", "AI", "Agentic Engineering", "Remotion", "Music Video", "Open Source"]
+draft: false
+---
+
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+Actually, I wanted to keep working on [Kataster](/en/pro/blog/kataster-agent-workflow) this weekend. Actually. Then a colleague shared a video with our dev team, and what happened next is familiar to anyone who has ever watched "just one more video".
+
+## How it all started: LGTM
+
+The video that got me is called **"LGTM (Looks Good to Me)"** and went pretty viral over the last few weeks. No wonder it eventually landed in our team chat, too. It is about a company introducing AI agents. People get replaced one by one, the agents write the code, the agents review the code, and every pull request gets a cheerful "LGTM". Until everything goes wrong, because in the end nobody knows anymore what code is actually running.
+
+<YouTube id="3TNpOD6bov8" />
+
+The first time I watched it I laughed a lot, and at the same time I had to swallow a bit. If you've read my last posts, you know I'm spending a lot of time on the question of how much you can leave to an agent and where a human still has to take a look. And then along comes a music video that nails exactly that question in three minutes. With an earworm.
+
+Of course it didn't stop at that one video. YouTube knows what you like. A few examples that have been on repeat for me since:
+
+<YouTube id="A1iPUBTg4qw" />
+
+The "official anthem" of the genre. The title "Slopcore 2027" pretty much says it all.
+
+<YouTube id="LUjmtJy2v_4" />
+
+And "KILL SWITCH" by Astra Blue, which shows that the whole thing can do more than satire and can look really good, too.
+
+## So what is Slopcore?
+
+"AI slop" is actually an insult. It means all the cheaply generated AI content flooding every timeline right now: weird pictures with six fingers, generic texts, videos without rhyme or reason. Slopcore turns that around and makes a genre out of the insult. The way I understand it, these are songs and music videos that are openly made with AI and often deal with AI, tech and our brave new world of work. Sometimes as satire, sometimes seriously, sometimes just because it's fun.
+
+What I find exciting is the self-ironic approach. Nobody pretends this is handmade art. The "slop" is right there in the name. But precisely because production has become so cheap, suddenly anyone can make a music video about a topic that's on their mind. And if you do it well, you get something like LGTM that half the internet talks about.
+
+## Why I can't let go of the music
+
+I have to admit: the music is kind of addictive for me. A lot of it leans towards EBM, cyberpunk and synthwave: hard, driving beats, dark synths, neon aesthetics. I've always loved that. If you know my [hobby page](/en/hobby), you know I grew up with arcade machines, pinball and all that 80s stuff. And if you've read my [post about the TRON pinball machine](/en/hobby/blog/tron_mod), you also know I'm weak for neon grids and retro suns anyway.
+
+So Slopcore hits a pretty sensitive nerve for me: music I like, an aesthetic I like, and a topic I deal with every day at work. It was clear I had to try it myself.
+
+## Wait, why is this under "Pro"?
+
+Fair question. Music, neon, a YouTube channel: that sounds a lot like a hobby at first. But I'm making this distinction on purpose. For me it's still engineering in a way, and that's why it belongs right here.
+
+Because the really exciting part of the whole story isn't the finished video. It's what's behind it: a workflow with skills, subagents, schemas, tests, budget guards and a render pipeline. And digging into the technology: audio analysis, image and video models, Remotion, costs and context windows. That's no different from what I do for software with [Kataster](/en/pro/blog/kataster-agent-workflow), just for music videos.
+
+And honestly, for me it shows pretty well what we developers can do these days if we don't let ourselves fall behind. A year or two ago I would have needed a team of motion designers, editors and animators for a music video like this, or I simply wouldn't have done it. Today I build a pipeline for it over a weekend. But not by typing "make me a music video" into a prompt. Rather by understanding the technology and thinking about what the model may generate freely, what a script has to check and where I still decide myself. That is exactly engineering, and in my opinion it's becoming more important, not less.
+
+## First by hand
+
+No sooner said than done. My first attempt was a single music video that I built together with Claude Code in [Remotion](https://www.remotion.dev). Remotion is a framework where you write videos as React components. Every animation depends on the current frame, and at the end you render an MP4. For a developer that's pretty brilliant, because a video suddenly is just code. With Git, tests and everything.
+
+The first shot was pure motion graphics: neon grids, retro sun, terminal boot, glitch effects, all nicely on the beat. And I mean really on the beat, because Claude analyzed the song with a small Python pipeline: beats, sections and even every single sung word with a timestamp. That became the timing for all the scenes.
+
+That worked surprisingly well. But: it was just one project. For the next video I would have had to copy and adapt everything again. And I'm a bit biased by now. When I do something for the second time, I want to build a workflow out of it.
+
+## coreslopper: An agent workflow for music videos
+
+That's how **coreslopper** came about, public at [github.com/hemi1986/coreslopper](https://github.com/hemi1986/coreslopper). The name was originally only meant as a working title. Of course it stuck.
+
+You already know the basic idea from [La Guardia](/en/pro/blog/laguardia-agent-workflow) and [Kataster](/en/pro/blog/kataster-agent-workflow): **the LLM does the creative work, code does the mechanical work.** Skills write the brief, treatment, storyboard and prompts. Tested scripts do the audio analysis, validate the storyboard against a schema, check costs against the budget, cache generated images and clips and finally render the video.
+
+The flow looks like this:
+
+```text
+/new-video        create project, add song + lyrics, grilling → brief and treatment
+/video-next       from here on everything runs on its own:
+  Audio analysis  beats, sections, every word with a timestamp (Demucs, WhisperX)
+  Style bible     look, colors, typography, characters
+  Storyboard      every shot: motion graphics, AI clip, real footage or a mix
+  Assets          images and clips via fal.ai, Higgsfield or locally with ComfyUI
+  Render          Remotion, 16:9, 9:16 and 1:1
+  QA              art director and QA checker review before export
+```
+
+And this is where it gets really interesting for me, because in one respect coreslopper is the exact opposite of Kataster.
+
+### No approvals, but a budget
+
+In Kataster, I decide. I approve every story, I merge every pull request. In coreslopper there is **not a single creative approval**. Once the grilling at the start is done, the pipeline runs on its own until the finished video.
+
+Sounds exactly like the LGTM scenario I was laughing about above, right? I know. The difference is what can go wrong. If an agent messes up in La Guardia, in the worst case our museum's repair history is broken. If an agent messes up in coreslopper, a character in the music video has six fingers. That's Slopcore. It kind of belongs.
+
+So quality is ensured in two other places:
+
+- **Before, in the grilling.** The familiar interview in rounds (thanks again to [Matt Pocock](https://github.com/mattpocock/skills)) settles topic, mood, imagery and dramaturgy before a single cent is spent.
+- **During, through critic agents and hard rules.** An art director agent checks every generated image against the style bible and the character references, a QA checker reviews the finished video. Neither is allowed to generate anything, only to judge and request a limited number of retries.
+
+The pipeline only stops when it really can't go on: missing credentials, a check that still fails after several attempts, or **the budget is reached**. You have to specify the budget in US dollars when creating a project, there's no way around it. Every batch of images or clips is checked against the remaining budget beforehand. With AI video clips that's not a luxury but self-protection. They're expensive, and an agent that "just quickly" regenerates twenty clips gets costly very fast.
+
+On top of that, every stage runs in a fresh context. Stages only talk to each other through files. I know that from La Guardia already: small, clearly separated steps are the best protection against a context window that eventually bursts at the seams.
+
+### What got kicked out
+
+There's already been a layoff here, too. Originally coreslopper was supposed to generate the songs as well, with a lyrics skill and a direct connection to a music generator. I threw that out completely after one day. Now every project starts with a finished song: the mix, ideally the vocals as a separate track, and the lyrics. For me the song is the part I want to polish myself until it's right. The video is the part I'm happy to automate.
+
+A nice side effect: the lyrics now always come from me and never from speech recognition. Speech recognition only provides the timestamps. With sung lyrics over a loud synth bass it likes to hear some very creative lyric variants of its own, and I don't want those as subtitles in the video. Slop yes, but not like that.
+
+### How to install it
+
+Just like Kataster, one command is enough:
+
+```bash
+npx coreslopper@latest init my-videos
+```
+
+The wizard checks the tools (Node, Python, ffmpeg, Claude Code), asks for the API keys and creates a workspace. Then start Claude Code, type `/new-video`, and off you go. If you don't have API keys, you can play everything through with a mock provider and get placeholders instead of AI images. And if you have a decent graphics card, you can now render the video clips locally with ComfyUI.
+
+To be honest: the thing is still **work in progress**. The first commit is from November 8th, and we're already at version 0.4. So something changes every day, and plenty will surely still break. But that's exactly what makes it fun.
+
+## And what came out of it?
+
+A YouTube channel of my own. Of course. 😄
+
+From now on my Slopcore videos land at **[@HemiSlop](https://www.youtube.com/@HemiSlop)**. The first three are already online: "Gefällt mir nicht!", "KRIEGSRENDITE" and "Nummer im Ohr". All in German, all built with coreslopper, and topically all over the place.
+
+<YouTube id="MECrgrO3NxA" />
+
+<YouTube id="NKr0QtWzh4c" />
+
+<YouTube id="5mB1GuyuE90" />
+
+Feel free to check them out, subscribe, and if you don't like something, tell me. I already have the right song for that ("Gefällt mir nicht" means "I don't like it").
+
+## Conclusion
+
+What started as "just one more video" turned into a weekend full of synthwave, Remotion, audio analysis and budget guards. And I learned quite a bit about agentic engineering again.
+
+The most important takeaway for me: **how much control a human needs depends on what's at stake.** In La Guardia, where real data and real people are involved, I decide and merge every pull request myself. In coreslopper, where the worst outcome is a weird video, the agent can just go ahead, as long as the budget holds and the critics are happy. Both follow the same basic idea, just with different dials.
+
+And LGTM? It stays the perfect reminder for the next time I just type "go ahead with your recommendations" in an agent review. A bit of slop is okay. A bit.
+
+Have you played around with AI music or videos yourself? Or do you think the whole thing is terrible? [Feel free to write to me](/en/pro/contact)! And if you try coreslopper: issues and pull requests on [GitHub](https://github.com/hemi1986/coreslopper) are explicitly welcome.
+
+---
+_translated and co-created with Claude_
