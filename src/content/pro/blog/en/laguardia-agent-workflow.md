@@ -113,5 +113,7 @@ Another goal is to turn the framework into a standalone repo that lets you carry
 
 What do you think? [Feel free to write to me about it!](/en/pro/contact)
 
+> **Update (November 2026):** How the workflow evolved is covered in the follow-up post ["Kataster: How My Agent Workflow Became a Project of Its Own"](/en/pro/blog/kataster-agent-workflow). What the software looks like so far is on the [La Guardia project page](/en/pro/projects/laguardia-pinball-manager).
+
 ---
 _translated and co-created with Claude_

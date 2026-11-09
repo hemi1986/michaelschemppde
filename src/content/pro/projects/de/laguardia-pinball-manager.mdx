@@ -1,0 +1,138 @@
+---
+title: "La Guardia — Flipper-Verwaltungssoftware für Museen und alle, die es brauchen können"
+description: "Mit meinem Agenten-Workflow habe ich mir nach und nach eine Software gebaut, mit der wir in unserem Flippermuseum unsere Geräte verwalten. Und ihr könnt das auch, sie ist nämlich Open Source."
+date: 2026-11-01
+tags: ["Next.js", "Claude Code", "AI", "OpenCode", "RAG", "OpenRouter", "Agentic Engineering"]
+status: ongoing
+link: "https://github.com/hemi1986/laguardia"
+---
+
+## Motivation
+
+Wenn man meine Webseite durchforstet, wird einem in der Regel nicht entgehen, dass ich ein eher ungewöhnliches Hobby habe: Flipper restaurieren, reparieren und natürlich auch spielen.
+Wie es der Zufall so will, gibt es in der Nähe von meinem Heimatort (genauer gesagt in dem kleinen Dorf Eschbach bei Bad Krozingen) einen Flipper- und Arcade-Verein inkl. eigenem Museum.
+
+Dort bin ich nun schon ein paar Jahre lang Mitglied und meistens damit beschäftigt, Flipper zu reparieren. Als „ITler“ wird man ja meistens für irgendwelche Dinge eingesetzt,
+weil man ja derjenige ist, „der sich mit Computern auskennt“. Ich hab da nur ein Problem mit: Ich bin ja eigentlich im Verein, weil ich Flipper reparieren will, und nicht, um dort auch wieder
+nur Computerzeugs zu machen. Das Löten, Elektronik messen, Mechanik reparieren usw. ist ja ein Ausgleich für mich.
+
+Aber wie es der Zufall nun mal so will, war das Verwalten der Defekte von diversen Flippern über handgeschriebene Zettel schon ein unzumutbarer Zustand. Da dachte ich mir: Mann, das kann man doch
+eleganter lösen! Und da ich mich sowieso mehr mit AI-Engineering auseinandersetzen wollte, war das doch ein tolles Projekt dafür.
+
+Gesagt, getan: Ich habe angefangen, eine Software zu bauen, mit der wir (aber zukünftig auch jeder andere, der das braucht) unsere Flipper digital besser verwalten können.
+Der Name ist übrigens ein Insider: Fiorello La Guardia war der New Yorker Bürgermeister, der 1942 Flipper verboten hat. Jetzt muss er sie halt verwalten.
+
+## Lastenheft
+
+Eieiei... Lastenheft... Schwierig, aber sind wir mal ehrlich: Irgendwie hat man ja immer so 'ne grobe Vorstellung von den Features, die man braucht. Okay... nennen wir es „MVP“. Die Software sollte
+also in meiner Vorstellung Folgendes können:
+
+- Mobile-First-UI: Da ich im Museum ja meist nur mit dem Handy rumrenne, kam mir das logisch vor.
+- Geräte erfassen – nicht nur Flipper, sondern auch unsere Arcades
+- Infos an die Geräte anhängen wie Handbücher, Schaltpläne, Bilder usw.
+- Wartungspläne verwalten für wiederkehrende Aufgaben wie Spielfeld säubern etc.
+- Defekte und Reparaturen erfassen und historisch auch einsehen können
+- Jeder Flipper bekommt einen QR-Code, mit dem Gäste ein Problem melden können
+- KI-Features: Einschätzungen für Defekte durch KI, um die Reparaturen zu vereinfachen
+- Die Umsetzung sollte durch einen echten „AI-Engineering-Workflow“ erfolgen
+
+## Umsetzung
+
+Wie bereits erwähnt, wollte ich die App durch KI umsetzen lassen. Dazu habe ich mir einen eigenen Agenten-Workflow ausgedacht, der im Prinzip eine Mischung aus Spec-Driven Development und
+der Herangehensweise von Matt Pocock ist. Wie der am Anfang aussah und wo er geklemmt hat, könnt ihr in meinem Blogbeitrag [„Mein domänengetriebener Agenten-Workflow: Ein Feldversuch“](/pro/blog/laguardia-agent-workflow) nachlesen.
+
+Seit dem Start Ende September ist einiges zusammengekommen. Stand Anfang November:
+
+| | |
+| --- | --- |
+| User Stories | 127, davon 116 umgesetzt (der Rest wurde durch bessere Stories ersetzt) |
+| Gemergte Pull Requests | über 220 |
+| Commits | rund 1.450 |
+| Architekturentscheidungen (ADRs) | 20 |
+| Tests | rund 250 Unit-/Integrationstest-Dateien und knapp 70 Browser-Specs |
+| Anwendungscode | grob 46.000 Zeilen TypeScript (ohne Tests) |
+
+Und das alles in gut sechs Wochen, nebenher und ohne dass ich selbst eine Zeile Anwendungscode geschrieben habe. Auch die KI-Funktionen laufen mittlerweile im Prototyp.
+
+Mit dem Agenten-Workflow bin ich inzwischen auch recht happy, nachdem ich einige Anpassungen gemacht habe. Ich habe ihn sogar als eigenes Open-Source-Projekt
+veröffentlicht, wo ihn jeder selbst ausprobieren oder sogar contributen kann: **Kataster** ([github.com/hemi1986/kataster](https://github.com/hemi1986/kataster)). La Guardia wird mittlerweile selbst mit Kataster weitergebaut.
+Was sich auf dem Weg dahin alles geändert hat (Spoiler: der Product Owner ist raus), steht im Folgebeitrag [„Kataster: Wie aus meinem Agenten-Workflow ein eigenes Projekt wurde“](/pro/blog/kataster-agent-workflow).
+
+### Technik
+
+Die Software wurde mit folgenden Technologien umgesetzt:
+
+- Agenten-Workflow mit Claude Code (mittlerweile auch möglich mit OpenCode)
+- Next.js
+- PostgreSQL inkl. pgvector
+- S3 Object Storage (lokal SeaweedFS)
+- LLM-Backend: OpenRouter
+- Modelle, die eingesetzt wurden, um alles zu erstellen: Opus 5.5, Sonnet 5.5, DeepSeek v4.1 Flash 1070
+
+## Was kam denn bisher dabei raus?
+
+Eine echte App, aktuell komplett auf Mobile optimiert und mit shadcn/ui gebaut (hier ist noch Luft nach oben). Die App besteht mittlerweile aus den folgenden Funktionen:
+
+### Modell- und Geräteerfassung
+
+Man kann verschiedene Modelle erfassen, aus denen sich wiederum konkrete Geräte erfassen lassen. Warum ist das so? Nun, es kann durchaus vorkommen, dass wir zwei gleiche Geräte im Museum
+haben, und somit gibt uns das einfach ein bisschen mehr Flexibilität.
+
+Geräte bekommen eigene Seriennummern, damit sie eindeutig identifizierbar sind, sowie einen ganzen Haufen Anhänge, die man optional dranhängen kann, wie:
+- Handbücher
+- Schaltpläne
+- Nützliche Infos von bspw. Pinwiki
+- Bilder
+
+Alle Geräte haben eine eigene Historie und einen Status. Man kann also in Zukunft immer sehen, was schon mal wann und wie repariert wurde. Außerdem kann man über den Status Geräte auch als defekt
+usw. markieren.
+
+Zu den Geräten lassen sich QR-Codes zum Selberdrucken (irgendein Avery-Format) erzeugen, die man dann an den Geräten anbringen kann. Somit hat auch jedes Gerät eine öffentliche Seite,
+über die Gäste Probleme melden können oder aktuelle Infos wie bekannte Defekte zum Gerät bekommen.
+
+### Reparatur-Workflow & Wartungen
+
+Zusammen mit der KI hab ich mir verschiedene Workflows überlegt. Eine Reparatur setzt immer die Meldung eines Problems voraus. Die kann natürlich von intern oder extern kommen.
+In der Software gibt es drei Arten von Nutzern:
+
+- Techniker (also Leute, die was von Flippern verstehen)
+- Helfer (also Leute, die gerne helfen, aber ggf. keine Elektronikspezialisten sind und bei komplexen Aufgaben eher Hilfe benötigen)
+- Öffentliche Nutzer (also im Prinzip kein Account)
+
+Die Idee ist also: Man erfasst ein Problem, ein Techniker „sichtet“ dieses Problem und wandelt es ggf. in einen echten Defekt um. Dabei klassifiziert er auch, ob sich die Aufgabe
+bspw. für Helfer eignet oder eben einen Techniker erfordert. Über die Übersicht sieht man die verschiedenen offenen Aufgaben und kann zu den Defekten Reparaturschritte
+erfassen, bis ein Schritt das Problem löst und der Defekt abgeschlossen werden kann.
+
+Des Weiteren ist es möglich, Wartungspläne zu hinterlegen (also sich wiederholende Aufgaben). Dazu gehört z. B. Spielfeld reinigen oder Flippermechaniken prüfen usw. Diese können Geräten
+in einem festen, wiederkehrenden Intervall zugewiesen werden und erscheinen dann ebenfalls auf der Übersicht.
+
+### KI-Funktionen
+
+Ich selbst habe schon oft gemerkt, wie hilfreich die ganzen AI-Tools wie bspw. Claude beim Debuggen von Flipperproblemen sein können. Insbesondere, wenn man verschiedenste Dokumente wie
+Handbücher, Schaltpläne oder typische bekannte Probleme als Kontext hinzufügt. Für mich war also klar: Ich möchte eine Art KI-Einschätzung einbauen.
+
+Ich hab mich (wie oben kurz erwähnt) für Folgendes entschieden:
+
+- LLM-Backend: OpenRouter. Warum? Weil dort extrem viele Modelle angebunden sind und es eine einfache API zur Verfügung stellt.
+- RAG: Da die Software ohnehin Postgres nutzt, war pgvector ein No-Brainer. Ich nutze es, um die ganzen Dokumente bei den Maschinen zu vektorisieren.
+
+Wenn man nun in den Einstellungen der Software einen OpenRouter-Key hinterlegt und ein Chat- und ein Embedding-Modell festlegt, kann man Folgendes tun:
+
+- Dokumente, die zu Flippern hochgeladen werden, werden automatisch vektorisiert und in der Datenbank gespeichert.
+- Bei einem Defekt kann man eine KI-Einschätzung einholen. Hierzu kann man weiteren Kontext mitgeben. Dieser wird zusammen mit den passenden Dokumenten aus der RAG-Pipeline an das Chatmodell geschickt und
+man bekommt eine Ersteinschätzung zu dem Problem und wo man ggf. prüfen könnte. Diese Einschätzung kann man theoretisch beliebig oft wiederholen.
+- Ganz frisch dazugekommen: der **KI-Modellvorschlag**. Man gibt nur grob an, um welche Maschine es geht, und die KI füllt Titel, Hersteller, Baujahr, Gerätekategorie und Technik aus, sucht im Netz nach Handbüchern, Schaltplänen und Pinwiki-Einträgen und schlägt sie als Dokumente vor. Man muss nur noch prüfen, abhaken und speichern; die Dokumente werden dann automatisch heruntergeladen. Kostenpunkt laut dem vorgeschalteten Spike: ein paar Cent und zwischen 10 und 40 Sekunden pro Vorschlag.
+
+Das funktioniert bereits sehr gut, kann aber noch weiter ausgebaut werden.
+
+## Was kommt als Nächstes?
+
+Ich glaube, wichtig wird, das UI zu verschönern und auch die Usability zu verbessern. Es gibt noch einige Ecken und Kanten, die einfach nicht gut aussehen und schlecht zu bedienen sind.
+Die AI-Funktionen sind fürs Erste in Ordnung, aber ich denke, auch hier kann man noch einiges verbessern und die KI noch klüger einbinden.
+
+Ich bin gespannt, wie sich das alles nachher bedient, wenn wirklich mal 50 oder mehr Geräte erfasst sind. Was mir bereits heute klar ist: Ich benötige definitiv einen eigenen File-Explorer,
+um die ganzen Daten separat verwalten zu können.
+
+Ihr wollt das auch oder habt Ideen, wie man das Ding besser machen kann? [Schreibt mir!](/pro/contact) Oder contributed doch einfach auf [GitHub](https://github.com/hemi1986/laguardia) :)
+
+Bis zum nächsten Mal.

@@ -1,0 +1,138 @@
+---
+title: "La Guardia — Pinball Management Software for Museums and Anyone Who Can Use It"
+description: "With my agent workflow I gradually built a piece of software we use to manage the machines in our pinball museum. And you can too, because it's open source."
+date: 2026-11-01
+tags: ["Next.js", "Claude Code", "AI", "OpenCode", "RAG", "OpenRouter", "Agentic Engineering"]
+status: ongoing
+link: "https://github.com/hemi1986/laguardia"
+---
+
+## Motivation
+
+If you browse my website, you probably won't miss that I have a rather unusual hobby: restoring, repairing and of course playing pinball machines.
+As luck would have it, there is a pinball and arcade club with its own museum near my hometown (more precisely in the small village of Eschbach near Bad Krozingen).
+
+I've been a member there for a few years now and I'm mostly busy repairing pinball machines. As the "IT guy" you usually get roped into all kinds of things,
+because you're the one "who knows about computers". My only problem with that: I'm in the club because I want to fix pinball machines, not to do
+computer stuff again. Soldering, measuring electronics, fixing mechanics and so on is my way to unwind.
+
+But as luck would have it, managing the defects of various machines on handwritten notes had become an unbearable state of affairs. So I thought: Man, this can be solved
+more elegantly! And since I wanted to dig deeper into AI engineering anyway, it seemed like a great project for that.
+
+No sooner said than done: I started building software that lets us (and in the future anyone else who needs it) manage our pinball machines digitally.
+The name is an insider joke, by the way: Fiorello La Guardia was the mayor of New York who banned pinball in 1942. Now he has to manage them.
+
+## Requirements
+
+Oh boy... a requirements spec... Tricky, but let's be honest: Somehow you always have a rough idea of the features you need. Okay... let's call it an "MVP". In my mind,
+the software should be able to do the following:
+
+- Mobile-first UI: Since I mostly run around the museum with just my phone, that seemed logical.
+- Register machines – not just pinball machines but also our arcades
+- Attach information to machines, like manuals, schematics, pictures, etc.
+- Manage maintenance plans for recurring tasks like cleaning the playfield
+- Record defects and repairs and be able to look at the history
+- Every machine gets a QR code that guests can scan to report a problem
+- AI features: AI assessments of defects to make repairs easier
+- Implementation through a real "AI engineering workflow"
+
+## Implementation
+
+As mentioned, I wanted to have the app built by AI. For that I came up with my own agent workflow, which is basically a mix of spec-driven development and
+Matt Pocock's approach. You can read what it looked like at the beginning and where it got stuck in my blog post ["My Domain-Driven Agent Workflow: A Field Experiment"](/en/pro/blog/laguardia-agent-workflow).
+
+Quite a lot has come together since the start at the end of September. As of early November:
+
+| | |
+| --- | --- |
+| User stories | 127, 116 of them implemented (the rest were replaced by better stories) |
+| Merged pull requests | more than 220 |
+| Commits | around 1,450 |
+| Architecture decisions (ADRs) | 20 |
+| Tests | around 250 unit/integration test files and almost 70 browser specs |
+| Application code | roughly 46,000 lines of TypeScript (excluding tests) |
+
+All of that in just over six weeks, on the side, and without me writing a single line of application code myself. The AI features are running as a prototype by now, too.
+
+I'm also quite happy with the agent workflow by now, after making a few adjustments. I've even published it as its own open-source project
+where anyone can try it out or even contribute: **Kataster** ([github.com/hemi1986/kataster](https://github.com/hemi1986/kataster)). La Guardia itself is now being built with Kataster.
+What changed along the way (spoiler: the product owner is gone) is covered in the follow-up post ["Kataster: How My Agent Workflow Became a Project of Its Own"](/en/pro/blog/kataster-agent-workflow).
+
+### Tech
+
+The software was built with the following technologies:
+
+- Agent workflow with Claude Code (now also possible with OpenCode)
+- Next.js
+- PostgreSQL incl. pgvector
+- S3 object storage (locally SeaweedFS)
+- LLM backend: OpenRouter
+- Models used to build everything: Opus 5.5, Sonnet 5.5, DeepSeek v4.1 Flash 1070
+
+## So what came out of it so far?
+
+A real app, currently fully optimized for mobile and built with shadcn/ui (there's still room for improvement here). By now the app consists of the following features:
+
+### Models and machines
+
+You can register different models, from which you can in turn register concrete machines. Why? Well, it can happen that we have two identical machines in the museum,
+and this simply gives us a bit more flexibility.
+
+Machines get their own serial numbers so they can be identified uniquely, plus a whole bunch of optional attachments, such as:
+- Manuals
+- Schematics
+- Useful info from e.g. Pinwiki
+- Pictures
+
+All machines have their own history and status. So in the future you can always see what was repaired when and how. You can also use the status to mark machines as defective
+and so on.
+
+For each machine you can generate printable QR codes (some Avery format) that you then attach to the machines. That way every machine also gets a public page
+where guests can report problems or get current information such as known defects.
+
+### Repair workflow & maintenance
+
+Together with the AI I came up with several workflows. A repair always starts with a reported problem. That can of course come from inside or outside.
+There are three kinds of users in the software:
+
+- Technicians (people who know their way around pinball machines)
+- Helpers (people who like to help but may not be electronics specialists and rather need support with complex tasks)
+- Public users (basically no account)
+
+So the idea is: someone reports a problem, a technician "triages" it and turns it into an actual defect if needed. In doing so, they also classify whether the task
+is suitable for helpers or needs a technician. The overview shows all open tasks, and you can record repair steps for a defect
+until one step solves the problem and the defect can be closed.
+
+It's also possible to set up maintenance plans (i.e. recurring tasks), such as cleaning the playfield or checking the flipper mechanics. These can be assigned to machines
+in a fixed recurring interval and then also show up on the overview.
+
+### AI features
+
+I've often noticed myself how helpful AI tools like Claude can be when debugging pinball problems. Especially when you add all kinds of documents like
+manuals, schematics or well-known typical problems as context. So for me it was clear: I want some kind of AI assessment.
+
+I decided on the following (as briefly mentioned above):
+
+- LLM backend: OpenRouter. Why? Because it has an enormous number of models connected and offers a simple API.
+- RAG: Since the software uses Postgres anyway, pgvector was a no-brainer. I use it to vectorize all the documents attached to the machines.
+
+If you store an OpenRouter key in the settings and pick a chat model and an embedding model, you can do the following:
+
+- Documents uploaded to a machine are automatically vectorized and stored in the database.
+- For a defect you can request an AI assessment. You can add further context, which is sent to the chat model together with the matching documents from the RAG pipeline,
+and you get an initial assessment of the problem and where you might want to check. You can repeat this assessment as often as you like.
+- Brand new: the **AI model proposal**. You only roughly say which machine it is, and the AI fills in title, manufacturer, year, machine category and technology, searches the web for manuals, schematics and Pinwiki entries and proposes them as documents. All you have to do is check, tick and save; the documents are then downloaded automatically. Cost according to the spike that came first: a few cents and between 10 and 40 seconds per proposal.
+
+This already works really well but can be expanded further.
+
+## What's next?
+
+I think the important part will be to make the UI prettier and improve usability. There are still some rough edges that just don't look good and are awkward to use.
+The AI features are fine for now, but I think there's room for improvement here too, and the AI could be integrated even more cleverly.
+
+I'm curious how it all feels once we really have 50 or more machines registered. One thing is already clear to me: I definitely need my own file explorer
+to manage all the data separately.
+
+You want this too or have ideas how to make the thing better? [Write to me!](/en/pro/contact) Or just contribute on [GitHub](https://github.com/hemi1986/laguardia) :)
+
+Until next time.
