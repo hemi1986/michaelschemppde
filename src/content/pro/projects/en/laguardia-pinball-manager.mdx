@@ -7,6 +7,8 @@ status: ongoing
 link: "https://github.com/hemi1986/laguardia"
 ---
 
+import LightboxImage from "@components/LightboxImage.astro";
+
 ## Motivation
 
 If you browse my website, you probably won't miss that I have a rather unusual hobby: restoring, repairing and of course playing pinball machines.
@@ -73,6 +75,21 @@ The software was built with the following technologies:
 
 A real app, currently fully optimized for mobile and built with shadcn/ui (there's still room for improvement here). By now the app consists of the following features:
 
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/machines.png"
+    alt="Machine list in La Guardia"
+    caption="The machine list with status filters."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/machine.png"
+    alt="Machine detail page"
+    caption="A machine with defects, maintenance, status and repair history and files."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
+
 ### Models and machines
 
 You can register different models, from which you can in turn register concrete machines. Why? Well, it can happen that we have two identical machines in the museum,
@@ -89,6 +106,21 @@ and so on.
 
 For each machine you can generate printable QR codes (some Avery format) that you then attach to the machines. That way every machine also gets a public page
 where guests can report problems or get current information such as known defects.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/stickers.png"
+    alt="Printing QR stickers"
+    caption="QR stickers for Avery label sheets."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/public-machine.png"
+    alt="Public machine page"
+    caption="The public page behind the QR code."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
 
 ### Repair workflow & maintenance
 
@@ -124,6 +156,21 @@ and you get an initial assessment of the problem and where you might want to che
 - Brand new: the **AI model proposal**. You only roughly say which machine it is, and the AI fills in title, manufacturer, year, machine category and technology, searches the web for manuals, schematics and Pinwiki entries and proposes them as documents. All you have to do is check, tick and save; the documents are then downloaded automatically. Cost according to the spike that came first: a few cents and between 10 and 40 seconds per proposal.
 
 This already works really well but can be expanded further.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/defect.png"
+    alt="Defect with AI assessment"
+    caption="A defect with an AI assessment incl. references from Pinwiki."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/ai-proposal.png"
+    alt="AI model proposal"
+    caption="A saved AI model proposal: the AI found the manuals on the web."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
 
 ## What's next?
 

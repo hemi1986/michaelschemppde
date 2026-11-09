@@ -7,6 +7,8 @@ status: ongoing
 link: "https://github.com/hemi1986/laguardia"
 ---
 
+import LightboxImage from "@components/LightboxImage.astro";
+
 ## Motivation
 
 Wenn man meine Webseite durchforstet, wird einem in der Regel nicht entgehen, dass ich ein eher ungewöhnliches Hobby habe: Flipper restaurieren, reparieren und natürlich auch spielen.
@@ -73,6 +75,21 @@ Die Software wurde mit folgenden Technologien umgesetzt:
 
 Eine echte App, aktuell komplett auf Mobile optimiert und mit shadcn/ui gebaut (hier ist noch Luft nach oben). Die App besteht mittlerweile aus den folgenden Funktionen:
 
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/machines.png"
+    alt="Geräteliste in La Guardia"
+    caption="Die Geräteliste mit Statusfiltern."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/machine.png"
+    alt="Detailseite eines Geräts"
+    caption="Ein Gerät mit Defekten, Wartung, Status- und Reparaturhistorie sowie Dateien."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
+
 ### Modell- und Geräteerfassung
 
 Man kann verschiedene Modelle erfassen, aus denen sich wiederum konkrete Geräte erfassen lassen. Warum ist das so? Nun, es kann durchaus vorkommen, dass wir zwei gleiche Geräte im Museum
@@ -89,6 +106,21 @@ usw. markieren.
 
 Zu den Geräten lassen sich QR-Codes zum Selberdrucken (irgendein Avery-Format) erzeugen, die man dann an den Geräten anbringen kann. Somit hat auch jedes Gerät eine öffentliche Seite,
 über die Gäste Probleme melden können oder aktuelle Infos wie bekannte Defekte zum Gerät bekommen.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/stickers.png"
+    alt="QR-Sticker drucken"
+    caption="QR-Sticker für Avery-Etikettenbögen."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/public-machine.png"
+    alt="Öffentliche Geräteseite"
+    caption="Die öffentliche Seite hinter dem QR-Code."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
 
 ### Reparatur-Workflow & Wartungen
 
@@ -124,6 +156,21 @@ man bekommt eine Ersteinschätzung zu dem Problem und wo man ggf. prüfen könnt
 - Ganz frisch dazugekommen: der **KI-Modellvorschlag**. Man gibt nur grob an, um welche Maschine es geht, und die KI füllt Titel, Hersteller, Baujahr, Gerätekategorie und Technik aus, sucht im Netz nach Handbüchern, Schaltplänen und Pinwiki-Einträgen und schlägt sie als Dokumente vor. Man muss nur noch prüfen, abhaken und speichern; die Dokumente werden dann automatisch heruntergeladen. Kostenpunkt laut dem vorgeschalteten Spike: ein paar Cent und zwischen 10 und 40 Sekunden pro Vorschlag.
 
 Das funktioniert bereits sehr gut, kann aber noch weiter ausgebaut werden.
+
+<div class="not-prose my-8 grid grid-cols-2 gap-4 items-start">
+  <LightboxImage
+    src="/images/pro/laguardia/defect.png"
+    alt="Defekt mit KI-Einschätzung"
+    caption="Ein Defekt mit KI-Einschätzung inkl. Fundstellen aus Pinwiki."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+  <LightboxImage
+    src="/images/pro/laguardia/ai-proposal.png"
+    alt="KI-Modellvorschlag"
+    caption="Ein gespeicherter KI-Modellvorschlag: Die Handbücher hat die KI im Netz gefunden."
+    imgClass="w-full max-h-[34rem] object-cover object-top rounded-lg border border-[var(--color-border)]"
+  />
+</div>
 
 ## Was kommt als Nächstes?
 
